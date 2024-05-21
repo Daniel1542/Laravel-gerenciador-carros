@@ -1,0 +1,127 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  /*main*/
+  .msm{
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    background-color: #2de627;
+    width: 100%;
+  }
+  
+  .alert {
+    margin-top: 200px;
+  }
+  
+  .form-group{
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+  }
+  
+  .corpo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #7ec8e6;
+    padding: 0;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  .corpo .dashboard{
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    text-decoration: none;
+  }
+  
+  .corpo a{
+    color: rgb(4, 160, 43);
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  header{
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    position: fixed;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    gap: 15px;
+    background-color: #ebe1b7;
+  }
+  
+  /* Estilos para o menu suspenso */
+  
+  .dropdown {
+    margin: 10px 0;
+    display: inline-block;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 0px 10px #000000;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #495057; 
+  }
+  
+  /*footer*/
+  
+  footer{
+    text-align: center;
+    padding: 10px;
+    margin-top: 100px;
+    background-color: #ebe1b7;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  footer a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 768px) {
+  
+    header{
+      justify-content: space-around;
+    }
+  
+    footer{
+      margin-top: 80px;
+    }
+  
+  }

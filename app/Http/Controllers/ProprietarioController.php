@@ -14,7 +14,7 @@ class ProprietarioController extends Controller
     {
         $total = Proprietario::count();
         
-        return view('principal.dashboard', compact('total'));
+        return view('proprietario.listaProprietario', compact('total'));
     }
 
     /**

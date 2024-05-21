@@ -14,7 +14,7 @@ class VeiculoController extends Controller
     {
         $total = Veiculo::count();
         
-        return view('principal.dashboard', compact('total'));
+        return view('veiculo.listaVeiculo', compact('total'));
     }
 
     /**

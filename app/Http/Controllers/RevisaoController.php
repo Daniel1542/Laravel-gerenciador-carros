@@ -14,7 +14,7 @@ class RevisaoController extends Controller
     {
         $total = Revisao::count();
         
-        return view('principal.dashboard', compact('total'));
+        return view('revisao.listaRevisao', compact('total'));
     }
 
     /**

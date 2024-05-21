@@ -26,8 +26,8 @@
 </head>
 <body class="corpo">
   <header>
-    <div class="dropdown">
-        <li><a class="dropdown-item" href="{{ route('principal.dashboard')}}">Veículo</a></li>
+    <div>
+      <a class="dashboard" href="{{ route('principal.dashboard')}}">Dash</a>
     </div>
     {{-- menu responsivo --}}
     <div class="col-lg-3">
@@ -45,12 +45,26 @@
     {{-- Menu no pc --}}
     <div class="dropdown d-none d-lg-block" >
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Mostrar
+        Veículo
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Veículo</a></li>
-        <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Proprietário</a></li>
-        <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Revisões</a></li>
+        <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
+      </ul>    
+    </div>
+    <div class="dropdown d-none d-lg-block" >
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Proprietário
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
+      </ul>    
+    </div>
+    <div class="dropdown d-none d-lg-block" >
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Revisões
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
       </ul>    
     </div>
   </header>

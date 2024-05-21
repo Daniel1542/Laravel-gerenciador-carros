@@ -7,7 +7,7 @@
         <div class="container">
             <div class="card">   
                 <div class="card-body">
-                    <h5 class="card-title">Quantidade Ações:</h5>
+                    <h5 class="card-title">Quantidade de veículos:</h5>
                     @if ($total > 0)
                         <p class="font">{{ $total }}</p>
                     @endif                                                           
@@ -15,7 +15,7 @@
             </div>
             <div class="card">                      
                 <div class="card-body">                  
-                    <h5 class="card-title">Quantidade FIIs:</h5>
+                    <h5 class="card-title">Quantidade de proprietarios:</h5>
                     @if ($total > 0)
                         <p class="font" >{{ $total }}</p>
                     @endif                                  
@@ -25,7 +25,7 @@
         <div class="container">
             <div class="card">   
                 <div class="card-body">
-                    <h5 class="card-title">Porcentagem Ações:</h5>
+                    <h5 class="card-title">Porcentagem veículos:</h5>
                     @if ($total > 0)
                         <p class="font">{{ number_format($total, 2, ',', '.') }}%</p>
                     @endif                                                          
@@ -33,7 +33,7 @@
             </div>
             <div class="card">   
                 <div class="card-body">
-                    <h5 class="card-title">Porcentagem Fiis:</h5>
+                    <h5 class="card-title">Porcentagem proprietarios:</h5>
                     @if ($total > 0)
                         <p class="font">{{ number_format($total, 2, ',', '.') }}%</p>
                     @endif                                                        
