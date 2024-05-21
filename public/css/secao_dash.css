@@ -1,0 +1,91 @@
+/*dashboard*/
+
+.secao_dash .secao_dash2{
+    display: flex;
+    padding: 0;
+  }
+  
+  .secao_dash .container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .card {
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 40px 80px;
+    border: 1px solid #dee2e6;
+    gap: 50px;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .font{
+    font-size: 25px;
+  }
+  
+  .secao_dash #caixa {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    padding: 35px;
+    border-radius: 2%;
+    background-color: rgb(196, 110, 104);
+  }
+  
+  .secao_dash2 #caixa2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 2%;
+    padding: 40px;
+    margin-bottom: 55px;
+    background-color: rgb(196, 110, 104);
+  }
+  
+  .secao_dash2 .container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-direction: row;
+  }
+  
+  @media screen and (max-width: 768px) {
+  
+    .secao_dash .secao_dash2{
+      width: 98vw;
+    }
+    .secao_dash .container{
+      margin-bottom: 10px;
+    }
+    .secao_dash2 .container{
+      flex-direction: column;
+    }
+  
+    .card {
+      margin-bottom: 5px;
+      padding: 20px 40px;
+    }
+    .secao_dash #caixa{
+      flex-direction: column;
+      margin-top: 150px;
+      margin-bottom: 50px;
+      padding: 20px;
+      width: 100%;
+    }
+  
+    .secao_dash2 #caixa2{
+      padding: 20px;
+      width: 100%;
+    }
+   
+  }
