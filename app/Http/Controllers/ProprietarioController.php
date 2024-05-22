@@ -24,18 +24,18 @@ class ProprietarioController extends Controller
 
             if ($quantMulher > 0) {
                 $dados[] = [
-                    'sexo' => $sexo,
+                    'sexo' => 'Mulheres',
                     'idadeMedia' => $idadeMediaMulher,
                 ];
-                $labels[] = $sexo;
+                $labels[] = 'Mulheres';
             }
 
             if ($quantHomem > 0) {
                 $dados[] = [
-                    'sexo' => $sexo,
+                    'sexo' => 'Homens',
                     'idadeMedia' => $idadeMediaHomem,
                 ];
-                $labels[] = $sexo;
+                $labels[] = 'Homens';
             }
         }
 
@@ -78,7 +78,7 @@ class ProprietarioController extends Controller
     public function graficoIdade()
     {
 
-        $totalSexo = Proprietario::where('sexo',['M','F'])->get();
+        $totalSexo = Proprietario::whereIn('sexo',['M','F'])->get();
 
         $total = $this-> funcoesGraficos($totalSexo->groupBy('sexo'));
         

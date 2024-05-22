@@ -34,19 +34,12 @@
         </div>
     </div>
 </section>
-<section class="secao_proprietario">
+<section class="secao_proprietario2">
     <div class="container" id="caixa_2">
-        <h1 class="text-center">Proprietarios</h1>
-        <div class="container">
-            <div class="text-center">
-                <h2>Idade media</h2>
-                <canvas id="graficoPizza"></canvas> 
-            </div>  
-            <div class="text-center">
-                <h2>Sexo</h2>
-                <canvas id="graficoPizza2"></canvas> 
-            </div>          
-        </div>
+        <div class="text-center">
+            <h2 class="mb-4">Idade media</h2>
+            <canvas id="graficoPizza"></canvas> 
+        </div>          
     </div>
 </section>
 
