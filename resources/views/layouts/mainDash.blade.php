@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="/css/app.css">
   <link rel="stylesheet" href="/css/secao_dash.css">
   <link rel="stylesheet" href="/css/secao_proprietario.css">
-  <link rel="stylesheet" href="/css/modal_add_ativos.css">
+  <link rel="stylesheet" href="/css/secao_veiculo.css">
+  <link rel="stylesheet" href="/css/secao_criar_proprietario.css">
   <link rel="stylesheet" href="/css/secao_movimento.css">
   <link rel="stylesheet" href="/css/secao_formula.css">
-  <link rel="stylesheet" href="/css/modal_add_formulas.css">
 
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">

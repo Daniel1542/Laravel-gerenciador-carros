@@ -75,6 +75,7 @@ class ProprietarioController extends Controller
         return view('proprietario.listaProprietario', compact('total'));
 
     }
+    
     public function graficoIdade()
     {
 
@@ -90,7 +91,7 @@ class ProprietarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('proprietario.createProprietario');
     }
 
     /**
@@ -98,38 +99,65 @@ class ProprietarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'cpf' => 'required|unique:proprietarios',
+            'idade' => 'required|integer',
+            'telefone' => 'required',
+            'sexo' => 'required',
+            'email' => 'nullable|email',
+        ]);
+
+        Proprietario::create($request->all());
+
+        return redirect()->route('proprietario.index')
+                        ->with('success', 'Proprietário criado com sucesso.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Proprietario $proprietario)
     {
-        //
+        return view('proprietario.show', compact('proprietario'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Proprietario $proprietario)
     {
-        //
+        return view('proprietario.editProprietario', compact('proprietario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Proprietario $proprietario)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'cpf' => 'required|unique:proprietarios,cpf,' . $proprietario->id,
+            'idade' => 'required|integer',
+            'telefone' => 'required',
+            'sexo' => 'required',
+            'email' => 'nullable|email',
+        ]);
+
+        $proprietario->update($request->all());
+
+        return redirect()->route('proprietario.index')
+                        ->with('success', 'Proprietário atualizado com sucesso.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Proprietario $proprietario)
     {
-        //
+        $proprietario->delete();
+
+        return redirect()->route('proprietario.index')
+                        ->with('success', 'Proprietário excluído com sucesso.');
     }
 }

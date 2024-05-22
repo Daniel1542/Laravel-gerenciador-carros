@@ -1,0 +1,110 @@
+    .secao_veiculo {
+        padding: 0;
+        margin-bottom: 100px;
+    }
+
+    .secao_veiculo #caixa{
+        width: 100%;
+        background-color: rgb(196, 110, 104);
+        padding: 30px;
+        margin-top: 180px;
+        border: 1px solid #d3a4a4;
+        border-radius: 5px;
+    }
+
+    .secao_veiculo .table-responsive {
+        max-height: 1000px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .secao_veiculo .table{    
+        border-collapse: collapse;
+    }
+
+    .secao_veiculo .table thead th,
+    .secao_veiculo .table td {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .secao_veiculo_2 #caixa_2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #d3a4a4;
+        border-radius: 2%;
+        background-color: rgb(196, 110, 104);
+    }
+
+    .secao_veiculo_2 .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .secao_veiculo_2 .card{
+        width: 100%;
+        margin-bottom: 25px;
+        padding: 30px 50px;
+        border: 1px solid #dee2e6;
+        gap: 50px;
+    }
+      
+    .secao_veiculo_2 .card-body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .secao_veiculo_2 .font{
+        font-size: 20px;
+    }
+
+
+    @media screen and (max-width: 768px) {
+
+    .secao_veiculo #caixa{
+        width: 98vw;
+        padding: 10px;
+    }
+
+    .secao_veiculo .table-responsive {
+        max-height: 700px;
+    }
+
+    .secao_veiculo tr {
+        flex-direction: row;
+    }
+
+    .secao_veiculo .table{
+        width: 100%;
+    }
+
+    .secao_veiculo .table thead th,
+    .secao_veiculo .table td {
+        width: 100%;
+        padding: 6px 8px;    
+        box-sizing: border-box;
+    }
+
+    .secao_veiculo_2 #caixa_2 {
+        width: 98vw;
+    }
+    .secao_veiculo_2 .container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+    .secao_veiculo_2 .font{
+        font-size: 20px;
+    }
+
+    }

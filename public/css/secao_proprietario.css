@@ -2,7 +2,7 @@
         padding: 0;
     }
 
-    .secao_proprietario2 {
+    .secao_proprietario_2 {
         margin-top: 50px;
     }
   
@@ -22,19 +22,24 @@
         border-radius: 5px;
     }
     
-    .secao_proprietario2 #caixa2 {
+    .secao_proprietario_2 #caixa_2 {
         display: flex;
         flex-direction: column;
         align-items: center;
+        border: 1px solid #d3a4a4;
         border-radius: 2%;
         background-color: rgb(196, 110, 104);
     }
 
-    .secao_proprietario2 .container {
+    .secao_proprietario_2 .container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         flex-direction: row;
+    }
+
+    .secao_proprietario_2 #caixa_2 #graficoPizza {
+        padding: 20px;
     }
     
     .secao_proprietario .table{    
@@ -53,6 +58,14 @@
 
     .secao_proprietario #caixa{
         width: 98vw;
+        padding: 10px;
+    }
+
+    .secao_proprietario_2 #caixa_2 {
+        width: 98vw;
+    }
+
+    .secao_proprietario_2 #caixa_2 #graficoPizza {
         padding: 10px;
     }
 

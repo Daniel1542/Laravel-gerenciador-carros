@@ -5,6 +5,12 @@
 <section class="secao_proprietario">
     <div class="container" id="caixa">
         <h1 class="text-center mb-4">Proprietários</h1>
+        <div class="buttons mt-4">
+            <form action="{{ route('proprietario.create') }}" method="GET">
+              {{ csrf_field() }}
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -34,10 +40,10 @@
         </div>
     </div>
 </section>
-<section class="secao_proprietario2">
+<section class="secao_proprietario_2">
     <div class="container" id="caixa_2">
         <div class="text-center">
-            <h2 class="mb-4">Idade media</h2>
+            <h2 class="mb-4 mt-4">Idade média de homens e mulheres</h2>
             <canvas id="graficoPizza"></canvas> 
         </div>          
     </div>
