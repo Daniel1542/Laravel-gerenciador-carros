@@ -1,0 +1,59 @@
+    .secao_proprietario {
+        padding: 0;
+    }
+  
+    .secao_proprietario .table-responsive {
+        max-height: 1000px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+  
+    .secao_proprietario #caixa {
+        width: 100%;
+        background-color: rgb(196, 110, 104);
+        padding: 30px;
+        margin-top: 180px;
+        border: 1px solid #d3a4a4;
+        border-radius: 5px;
+    }
+    
+    .secao_proprietario .table{    
+        border-collapse: collapse;
+    }
+    
+    .secao_proprietario .table thead th,
+    .secao_proprietario .table td {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        text-align: center;
+    }
+  
+@media screen and (max-width: 768px) {
+
+    .secao_proprietario #caixa {
+        width: 98vw;
+        padding: 10px;
+    }
+
+    .secao_proprietario .table-responsive {
+        max-height: 700px;
+    }
+
+    .secao_proprietario tr {
+        flex-direction: row;
+    }
+
+    .secao_proprietario .table{
+        width: 100%;
+    }
+
+    .secao_proprietario .table thead th,
+    .secao_proprietario .table td {
+        width: 100%;
+        padding: 6px 8px;    
+        box-sizing: border-box;
+    }
+
+}

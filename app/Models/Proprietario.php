@@ -12,6 +12,7 @@ class Proprietario extends Model
     protected $fillable = [
         'nome',
         'cpf',
+        'idade',
         'sexo',
         'email',
         'telefone',

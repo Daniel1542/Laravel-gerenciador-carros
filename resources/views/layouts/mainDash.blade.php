@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/app.css">
-  <link rel="stylesheet" href="/css/modal_add_ativos.css">
   <link rel="stylesheet" href="/css/secao_dash.css">
+  <link rel="stylesheet" href="/css/secao_proprietario.css">
+  <link rel="stylesheet" href="/css/modal_add_ativos.css">
   <link rel="stylesheet" href="/css/secao_movimento.css">
   <link rel="stylesheet" href="/css/secao_formula.css">
   <link rel="stylesheet" href="/css/modal_add_formulas.css">
@@ -56,7 +57,7 @@
         Proprietário
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
+        <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Mostrar</a></li>
       </ul>    
     </div>
     <div class="dropdown d-none d-lg-block" >
@@ -64,7 +65,7 @@
         Revisões
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
+        <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Mostrar</a></li>
       </ul>    
     </div>
   </header>

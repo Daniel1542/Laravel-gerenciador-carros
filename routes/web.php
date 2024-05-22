@@ -13,3 +13,8 @@ Route::resource('veiculo', VeiculoController::class);
 /*dashboard*/
 
 Route::get('/', [DashboardController::class, 'dash'])->name('principal.dashboard');
+
+/*proprietario*/
+
+Route::get('/graficoIdade', [ProprietarioController::class, 'graficoIdade'])
+->name('principal.graficoIdade');
