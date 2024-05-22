@@ -18,7 +18,8 @@
                         <th>Modelo:</th>
                         <th>Marca:</th>
                         <th>Placa:</th>     
-                        <th>Proprietario:</th>                  
+                        <th>Proprietario:</th>     
+                        <th>Opções:</th>               
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,17 @@
                             <td> {{ $veiculo['marca'] }}</td> 
                             <td> {{ $veiculo['placa'] }}</td>
                             <td> {{ $veiculo->proprietario['nome'] }}</td>
+                            <td class="buttons">
+                                <form action="{{ route('veiculo.edit', ['id' => $veiculo['id']]) }}" method="GET">
+                                  {{ csrf_field() }}
+                                  <button type="submit" class="btn btn-warning">Editar</button>
+                                </form>
+                                <form action="{{ route('veiculo.destroy', ['id' => $veiculo['id']]) }}" method="POST">
+                                  {{ csrf_field() }}
+                                  @method('DELETE')
+                                  <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
+                                </form>              
+                              </td>      
                         </tr> 
                     @endforeach   
                 </tbody>

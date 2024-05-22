@@ -18,3 +18,9 @@ Route::get('/', [DashboardController::class, 'dash'])->name('principal.dashboard
 
 Route::get('/graficoIdade', [ProprietarioController::class, 'graficoIdade'])
 ->name('principal.graficoIdade');
+
+Route::get('/veiculo/{id}/edit', [VeiculoController::class, 'edit'])
+->name('veiculo.edit');
+
+Route::delete('/veiculo/{id}', [VeiculoController::class, 'destroy'])
+->name('veiculo.destroy');

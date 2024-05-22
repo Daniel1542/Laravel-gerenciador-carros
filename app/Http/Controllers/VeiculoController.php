@@ -55,7 +55,7 @@ class VeiculoController extends Controller
      */
     public function create()
     {
-        //
+        return view('veiculo.createVeiculo');
     }
 
     /**
@@ -63,38 +63,61 @@ class VeiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'modelo' => 'required',
+            'marca' => 'required',
+            'placa' => 'required|unique:veiculos',
+        ]);
+
+        Veiculo::create($request->all());
+
+        return redirect()->route('veiculo.index')
+                        ->with('success', 'Veículo criado com sucesso.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Veiculo $veiculo)
     {
-        //
+        return view('veiculo.show', compact('veiculo'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Veiculo $veiculo)
     {
-        //
+        $veiculo = Veiculo::where('id', $veiculo->id)
+        ->findOrFail($veiculo);
+        return view('veiculo.editVeiculo', compact('veiculo', 'proprietarios'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Veiculo $veiculo)
     {
-        //
+        $request->validate([
+            'modelo' => 'required',
+            'marca' => 'required',
+            'placa' => 'required|unique:veiculos,placa,' . $veiculo->id,
+        ]);
+
+        $veiculo->update($request->all());
+
+        return redirect()->route('veiculo.index')
+                        ->with('success', 'Veículo atualizado com sucesso.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Veiculo $veiculo)
     {
-        //
+        $veiculo->delete();
+
+        return redirect()->route('veiculo.index')
+                        ->with('success', 'Veículo excluído com sucesso.');
     }
 }
