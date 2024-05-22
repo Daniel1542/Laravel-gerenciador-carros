@@ -14,5 +14,4 @@ class RevisaoSeeder extends Seeder
     {
         Revisao::factory()->count(10)->create();
     }
-
 }

@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('proprietarios', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('cpf')->unique();
+            $table->integer('cpf')->unique();
             $table->integer('idade');
             $table->string('telefone');
             $table->string('sexo');
             $table->string('email')->nullable();
-            $table->timestamps();    
+            $table->timestamps();
         });
     }
 

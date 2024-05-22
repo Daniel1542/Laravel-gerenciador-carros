@@ -12,7 +12,7 @@ class ProprietarioController extends Controller
         $dados = [];
         $labels = [];
 
-        foreach ($dado as $sexo => $proprietarios){
+        foreach ($dado as $sexo => $proprietarios) {
             $quantMulher = $proprietarios->where('sexo', 'F')->count();
             $quantHomem = $proprietarios->where('sexo', 'M')->count();
 
@@ -71,18 +71,17 @@ class ProprietarioController extends Controller
     public function index()
     {
         $total = Proprietario::all();
-        
-        return view('proprietario.listaProprietario', compact('total'));
 
+        return view('proprietario.listaProprietario', compact('total'));
     }
-    
+
     public function graficoIdade()
     {
 
-        $totalSexo = Proprietario::whereIn('sexo',['M','F'])->get();
+        $totalSexo = Proprietario::whereIn('sexo', ['M','F'])->get();
 
         $total = $this-> funcoesGraficos($totalSexo->groupBy('sexo'));
-        
+
         return response()->json($total);
     }
 

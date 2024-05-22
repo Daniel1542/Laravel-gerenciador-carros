@@ -13,6 +13,5 @@ class VeiculoSeeder extends Seeder
     public function run(): void
     {
         Veiculo::factory()->count(10)->create();
-
     }
 }

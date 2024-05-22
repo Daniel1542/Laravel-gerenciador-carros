@@ -8,15 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Revisao extends Model
 {
     use HasFactory;
+
     protected $table = 'revisoes';
     protected $fillable = [
-        'veiculo_id',
+        'placa',
         'data',
-        'tempo'
+        'descricao',
     ];
 
     public function veiculo()
     {
-        return $this->belongsTo(Veiculo::class);
+        return $this->belongsTo(Veiculo::class, 'placa', 'placa');
     }
 }

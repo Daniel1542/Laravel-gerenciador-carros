@@ -27,7 +27,7 @@ class VeiculoController extends Controller
         return [
             'quantidadeHomens' => $quantidadeHomens,
             'quantidadeMulheres' => $quantidadeMulheres,
-            'maisVeiculos' => $maisVeiculos, 
+            'maisVeiculos' => $maisVeiculos,
         ];
     }
     /**
@@ -46,7 +46,7 @@ class VeiculoController extends Controller
         $veiculosSexo = Veiculo::with('proprietario')->get();
 
         $totalSexo = $this->VeiculosPorGenero($veiculosSexo);
-        
+
         return view('veiculo.listaVeiculo', compact('tudo', 'veiculosNome', 'totalSexo'));
     }
 

@@ -45,7 +45,9 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
-        ]
+        ],
+        "lint": "phpcs --standard=PSR12 --extensions=php --ignore=vendor --report=full ./app ./config ./database ./routes ./tests",
+        "fix": "phpcbf --standard=PSR12 --extensions=php --ignore=vendor ./app ./config ./database ./routes ./tests"
     },
     "extra": {
         "laravel": {

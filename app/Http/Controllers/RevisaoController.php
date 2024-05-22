@@ -13,7 +13,7 @@ class RevisaoController extends Controller
     public function index()
     {
         $total = Revisao::count();
-        
+
         return view('revisao.listaRevisao', compact('total'));
     }
 

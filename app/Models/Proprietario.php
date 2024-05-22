@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Proprietario extends Model
 {
     use HasFactory;
+
     protected $table = 'proprietarios';
     protected $fillable = [
         'nome',
@@ -20,6 +21,6 @@ class Proprietario extends Model
 
     public function veiculo()
     {
-        return $this->hasMany(Veiculo::class);
+        return $this->hasMany(Veiculo::class, 'cpf', 'cpf');
     }
 }

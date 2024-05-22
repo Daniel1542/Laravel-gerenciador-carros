@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Veiculo extends Model
 {
     use HasFactory;
+
     protected $table = 'veiculos';
     protected $fillable = [
-        'proprietario_id',
+        'cpf',
         'modelo',
         'marca',
         'placa',
@@ -18,11 +19,11 @@ class Veiculo extends Model
 
     public function revisoes()
     {
-        return $this->hasMany(Revisao::class);
+        return $this->hasMany(Revisao::class, 'placa', 'placa');
     }
 
     public function proprietario()
     {
-        return $this->belongsTo(Proprietario::class);
+        return $this->belongsTo(Proprietario::class, 'cpf', 'cpf');
     }
 }

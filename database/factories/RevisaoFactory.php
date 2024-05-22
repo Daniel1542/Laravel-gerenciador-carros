@@ -26,11 +26,9 @@ class RevisaoFactory extends Factory
     public function definition()
     {
         return [
-            'veiculo_id' => function () {
-                return Veiculo::factory()->create()->id;
-            },
+            'placa' => Veiculo::factory()->create()->placa,
             'data' => $this->faker->date(),
-            'tempo' => $this->faker->numberBetween(1, 8),
+            'descricao' => $this->faker->text(),
         ];
     }
 }

@@ -10,17 +10,16 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    { 
+    {
         Schema::create('veiculos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('proprietario_id')->constrained()->onDelete('cascade');
+            $table->string('cpf');
+            $table->foreign('cpf')->references('cpf')->on('proprietarios')->onDelete('cascade');
             $table->string('modelo');
             $table->string('marca');
             $table->string('placa')->unique();
             $table->timestamps();
-
         });
-
     }
 
     /**

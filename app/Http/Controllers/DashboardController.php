@@ -17,9 +17,8 @@ class DashboardController extends Controller
         $totalVeiculo = Veiculo::count();
         $totalProprietario = Proprietario::count();
         $totalRevisao = Revisao::count();
-        
-        return view('principal.dashboard', compact('totalVeiculo', 'totalProprietario', 'totalRevisao'));
 
+        return view('principal.dashboard', compact('totalVeiculo', 'totalProprietario', 'totalRevisao'));
     }
 
     /**

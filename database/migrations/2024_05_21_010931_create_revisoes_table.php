@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('revisoes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('veiculo_id')->constrained()->onDelete('cascade');
-            $table->string('data');
-            $table->integer('tempo');
+            $table->string('placa');
+            $table->foreign('placa')->references('placa')->on('veiculos')->onDelete('cascade');
+            $table->date('data');
+            $table->string('descricao');
             $table->timestamps();
-
         });
     }
 

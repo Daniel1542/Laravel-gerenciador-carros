@@ -13,6 +13,5 @@ class ProprietarioSeeder extends Seeder
     public function run(): void
     {
         Proprietario::factory()->count(10)->create();
-
     }
 }
