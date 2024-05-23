@@ -1,0 +1,27 @@
+
+#ProprietariosController
+
+#Busca tudo
+
+
+SELECT * FROM proprietarios;
+
+
+#Verificar se o CPF não está duplicado na tabela de proprietários e insere um novo proprietário
+
+
+SELECT COUNT(*) FROM proprietarios WHERE cpf = 'valor_do_cpf';
+INSERT INTO proprietarios (nome, cpf, idade, telefone, sexo, email) 
+VALUES ('nome', 'cpf', 'idade', 'telefone', 'sexo', 'email');
+
+
+SELECT COUNT(*) AS total FROM proprietarios;
+
+
+SELECT sexo, COUNT(*) AS total FROM proprietarios GROUP BY sexo;
+
+
+SELECT sexo, AVG(idade) AS media_idade FROM proprietarios GROUP BY sexo;
+
+
+SELECT sexo, SUM(idade) AS soma_idades FROM proprietarios GROUP BY sexo;

@@ -1,0 +1,8 @@
+
+#DashboardController
+
+
+SELECT
+    (SELECT COUNT(*) FROM veiculos) AS total_veiculos,
+    (SELECT COUNT(*) FROM proprietarios) AS total_proprietarios,
+    (SELECT COUNT(*) FROM revisoes) AS total_revisoes;

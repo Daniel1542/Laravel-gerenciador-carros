@@ -1,0 +1,57 @@
+
+#RevisaoController
+
+
+#Busca tudo
+
+
+SELECT * FROM revisoes;
+
+
+#Verifica se a placa existe na tabela de veículos e insere uma nova revisão
+
+
+SELECT COUNT(*) FROM veiculos WHERE placa = 'valor_da_placa';
+INSERT INTO revisoes (placa, data, descricao) VALUES ('placa', 'data', 'descricao');
+
+
+#Consulta SQL para listar as pessoas com mais revisões:
+
+
+SELECT proprietarios.nome, proprietarios.cpf, COUNT(revisoes.id) as total_revisoes
+FROM proprietarios
+JOIN veiculos ON proprietarios.cpf = veiculos.cpf
+JOIN revisoes ON veiculos.placa = revisoes.placa
+GROUP BY proprietarios.nome, proprietarios.cpf
+ORDER BY total_revisoes DESC;
+
+
+#SQL para calcular a média do tempo entre revisões:
+
+
+SELECT proprietarios.cpf, 
+    AVG(DATEDIFF(revisoes.data, LAG(revisoes.data) OVER (PARTITION BY proprietarios.cpf ORDER BY revisoes.data))) 
+    as media_tempo
+FROM proprietarios
+JOIN veiculos ON proprietarios.cpf = veiculos.cpf
+JOIN revisoes ON veiculos.placa = revisoes.placa
+GROUP BY proprietarios.cpf;
+
+
+#SQL para listar as marcas com mais revisões:
+
+
+SELECT veiculos.marca, COUNT(revisoes.id) as total_revisoes
+FROM veiculos
+JOIN revisoes ON veiculos.placa = revisoes.placa
+GROUP BY veiculos.marca
+ORDER BY total_revisoes DESC;
+
+
+#SQL para retornar todas as revisões dentro do período especificado
+
+
+SELECT * FROM revisoes
+JOIN veiculos ON revisoes.placa = veiculos.placa
+WHERE revisoes.data BETWEEN :inicio AND :fim;
+

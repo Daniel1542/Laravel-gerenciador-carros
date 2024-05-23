@@ -1,0 +1,29 @@
+
+#ProprietariosController
+
+#Obter a contagem de veículos por marca em ordem decrescente
+
+
+SELECT marca, COUNT(*) as total_veiculos
+FROM veiculos
+GROUP BY marca
+ORDER BY total_veiculos DESC;
+
+
+#Consulta para obter os veículos ordenados pelo nome do proprietário
+
+
+SELECT veiculos.*, proprietarios.nome as nome_proprietario
+FROM veiculos
+JOIN proprietarios ON veiculos.cpf = proprietarios.cpf
+ORDER BY proprietarios.nome;
+
+#Obter a contagem de veículos por gênero do proprietário:
+
+
+SELECT
+    SUM(CASE WHEN proprietarios.sexo = 'M' THEN 1 ELSE 0 END) as quantidadeHomens,
+    SUM(CASE WHEN proprietarios.sexo = 'F' THEN 1 ELSE 0 END) as quantidadeMulheres,
+    CASE WHEN SUM(CASE WHEN proprietarios.sexo = 'M' THEN 1 ELSE 0 END) > SUM(CASE WHEN proprietarios.sexo = 'F' THEN 1 ELSE 0 END) THEN 'Homens' ELSE 'Mulheres' END as maisVeiculos
+FROM veiculos
+JOIN proprietarios ON veiculos.cpf = proprietarios.cpf;
