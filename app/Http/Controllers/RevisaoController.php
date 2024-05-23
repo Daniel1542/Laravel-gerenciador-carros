@@ -4,9 +4,96 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Revisao;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class RevisaoController extends Controller
 {
+    private function consultarPessoasComMaisRevisoes()
+    {
+        return DB::table('proprietarios')
+            ->join('veiculos', 'proprietarios.cpf', '=', 'veiculos.cpf')
+            ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
+            ->select('proprietarios.nome', 'proprietarios.cpf', 
+                    DB::raw('COUNT(revisoes.id) as total_revisoes'))
+            ->groupBy('proprietarios.nome', 'proprietarios.cpf')
+            ->orderByDesc('total_revisoes')
+            ->get();
+    }
+
+    private function mediaTempoEntreRevisoes()
+    {
+        $resultados = DB::table('proprietarios')
+            ->join('veiculos', 'proprietarios.cpf', '=', 'veiculos.cpf')
+            ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
+            ->select('proprietarios.nome', 'proprietarios.cpf', 'revisoes.data')
+            ->orderBy('proprietarios.cpf')
+            ->orderBy('revisoes.data')
+            ->get();
+
+        $mediaTempo = [];
+
+        $proprietarioAnterior = null;
+        $dataRevisaoAnterior = null;
+
+        foreach ($resultados as $resultado) {
+            if ($proprietarioAnterior !== $resultado->cpf) {
+                $proprietarioAnterior = $resultado->cpf;
+                $dataRevisaoAnterior = null;
+            } else {
+                if ($dataRevisaoAnterior !== null) {
+                    $diferencaDias = strtotime($resultado->data) - strtotime($dataRevisaoAnterior);
+                    $mediaTempo[$resultado->cpf] = isset($mediaTempo[$resultado->cpf]) ? ($mediaTempo[$resultado->cpf] + $diferencaDias) / 2 : $diferencaDias;
+                }
+                $dataRevisaoAnterior = $resultado->data;
+            }
+        }
+
+        return $mediaTempo;
+    }
+
+    public function revisoesPeriodo(Request $request)
+    {
+        $inicio = $request->input('data_inicio');
+        $fim = $request->input('data_fim');
+
+        $revisoes = Revisao::with('veiculo')
+                ->whereBetween('data', [$inicio, $fim])->get()
+                ->map(function ($revisao) {
+                    $revisao->data_formatada = Carbon::parse($revisao->data)->format('d/m/Y');
+                    return $revisao;
+                });
+
+        return view('revisao.resultadoRevisao', compact('revisoes'));
+    }
+
+    public function marcasComMaisRevisoes()
+    {
+        $marcasMaisRevisoes = DB::table('veiculos')
+            ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
+            ->select('veiculos.marca', DB::raw('COUNT(revisoes.id) as total_revisoes'))
+            ->groupBy('veiculos.marca')
+            ->orderByDesc('total_revisoes')
+            ->get();
+
+        return view('revisao.marcasRevisao', compact('marcasMaisRevisoes'));
+    }
+
+   
+
+    public function proximasRevisoes()
+    {
+        $proximasRevisoes = DB::table('revisoes')
+            ->select('placa', DB::raw('DATE_ADD(MAX(data), INTERVAL media_tempo_entre_revisoes DAY) as proxima_revisao'))
+            ->joinSub($this->mediaTempoEntreRevisoes(), 'media_tempo_entre_revisoes', function ($join) {
+                $join->on('revisoes.placa', '=', 'media_tempo_entre_revisoes.placa');
+            })
+            ->groupBy('placa')
+            ->get();
+
+        return view('proximas_revisoes', ['proximasRevisoes' => $proximasRevisoes]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -14,7 +101,10 @@ class RevisaoController extends Controller
     {
         $total = Revisao::all();
 
-        return view('revisao.listaRevisao', compact('total'));
+        $pessoasComMaisRevisoes = $this->consultarPessoasComMaisRevisoes();
+        $mediaTempo = $this->mediaTempoEntreRevisoes();
+
+        return view('revisao.listaRevisao', compact('total', 'pessoasComMaisRevisoes', 'mediaTempo'));
     }
 
     /**

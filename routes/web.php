@@ -49,3 +49,9 @@ Route::delete('/revisao/{id}', [RevisaoController::class, 'destroy'])
 
 Route::get('/revisao/{id}', [RevisaoController::class, 'show'])
     ->name('revisao.show');
+
+Route::get('/revisoesPeriodo', [RevisaoController::class, 'revisoesPeriodo'])
+    ->name('revisao.revisoesPeriodo');
+
+Route::get('/revisoesMarcas', [RevisaoController::class, 'marcasComMaisRevisoes'])
+    ->name('revisao.marcasComMaisRevisoes');

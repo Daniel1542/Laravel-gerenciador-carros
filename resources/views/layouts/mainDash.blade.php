@@ -43,6 +43,7 @@
           <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Proprietário</a></li>
           <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar Proprietário</a></li>
           <li><a class="dropdown-item" href="{{ route('revisao.create')}}">Cadastrar Revisões</a></li>
+          <li><a class="dropdown-item" href="{{ route('revisao.marcasComMaisRevisoes')}}">Marcas e Revisões</a></li>
           <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Revisões</a></li>
         </ul>    
       </div>
@@ -73,6 +74,7 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li><a class="dropdown-item" href="{{ route('revisao.create')}}">Cadastrar</a></li>
         <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Mostrar</a></li>
+        <li><a class="dropdown-item" href="{{ route('revisao.marcasComMaisRevisoes')}}">Marcas e Revisões</a></li>
       </ul>    
     </div>
   </header>
