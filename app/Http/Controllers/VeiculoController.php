@@ -57,6 +57,7 @@ class VeiculoController extends Controller
      */
     public function create()
     {
+
         return view('veiculo.createVeiculo');
     }
 
@@ -66,8 +67,9 @@ class VeiculoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'modelo' => 'required',
-            'marca' => 'required',
+            'cpf' => 'exists:proprietarios,cpf',
+            'modelo' => 'string',
+            'marca' => 'string',
             'placa' => 'required|unique:veiculos',
         ]);
 
@@ -82,7 +84,7 @@ class VeiculoController extends Controller
      */
     public function show(Veiculo $veiculo)
     {
-        return view('veiculo.show', compact('veiculo'));
+        return view('veiculo.mostrarVeiculo', compact('veiculo'));
     }
 
     /**
@@ -90,9 +92,7 @@ class VeiculoController extends Controller
      */
     public function edit(Veiculo $veiculo)
     {
-        $veiculo = Veiculo::where('id', $veiculo->id)
-        ->findOrFail($veiculo);
-        return view('veiculo.editVeiculo', compact('veiculo', 'proprietarios'));
+        return view('veiculo.editVeiculo', compact('veiculo'));
     }
 
     /**
@@ -101,8 +101,8 @@ class VeiculoController extends Controller
     public function update(Request $request, Veiculo $veiculo)
     {
         $request->validate([
-            'modelo' => 'required',
-            'marca' => 'required',
+            'modelo' => 'string',
+            'marca' => 'string',
             'placa' => 'required|unique:veiculos,placa,' . $veiculo->id,
         ]);
 

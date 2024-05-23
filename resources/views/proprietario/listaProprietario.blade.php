@@ -5,12 +5,12 @@
 <section class="secao_proprietario">
     <div class="container" id="caixa">
         <h1 class="text-center mb-4">Proprietários</h1>
-        <div class="buttons mt-4">
+        <div class="buttons mt-4">  
             <form action="{{ route('proprietario.create') }}" method="GET">
               {{ csrf_field() }}
               <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
-        </div>
+        </div>    
         <div class="table-responsive">
             <table class="table">
                 <thead>

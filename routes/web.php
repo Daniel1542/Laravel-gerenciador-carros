@@ -36,7 +36,7 @@ Route::get('/veiculo/{id}/edit', [VeiculoController::class, 'edit'])
 Route::delete('/veiculo/{id}', [VeiculoController::class, 'destroy'])
     ->name('veiculo.destroy');
 
-Route::get('/veiculo/show{id}', [VeiculoController::class, 'show'])
+Route::get('/veiculo/{id}', [VeiculoController::class, 'show'])
     ->name('veiculo.show');
 
 /*revisao*/
@@ -47,5 +47,5 @@ Route::get('/revisao/{id}/edit', [RevisaoController::class, 'edit'])
 Route::delete('/revisao/{id}', [RevisaoController::class, 'destroy'])
     ->name('revisao.destroy');
 
-Route::get('/revisao/show{id}', [RevisaoController::class, 'show'])
+Route::get('/revisao/{id}', [RevisaoController::class, 'show'])
     ->name('revisao.show');

@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/app.css">
-  <link rel="stylesheet" href="/css/secao_dash.css">
-  <link rel="stylesheet" href="/css/secao_proprietario.css">
-  <link rel="stylesheet" href="/css/secao_veiculo.css">
-  <link rel="stylesheet" href="/css/secao_criar_proprietario.css">
-  <link rel="stylesheet" href="/css/secao_movimento.css">
-  <link rel="stylesheet" href="/css/secao_formula.css">
+  <link rel="stylesheet" href="/css/dash.css">
+  <link rel="stylesheet" href="/css/proprietario.css">
+  <link rel="stylesheet" href="/css/veiculo.css">
+  <link rel="stylesheet" href="/css/cria_edita_mostra_veiculo.css">
+  <link rel="stylesheet" href="/css/cria_edita_mostra_proprietario.css">
 
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
@@ -38,6 +37,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Veículo</a></li>
+          <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastro Proprietário</a></li>
           <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Proprietário</a></li>
           <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Revisões</a></li>
         </ul>    
@@ -49,6 +49,7 @@
         Veículo
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar</a></li>
         <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
       </ul>    
     </div>
@@ -57,6 +58,7 @@
         Proprietário
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar</a></li>
         <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Mostrar</a></li>
       </ul>    
     </div>
@@ -65,6 +67,7 @@
         Revisões
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar</a></li>
         <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Mostrar</a></li>
       </ul>    
     </div>

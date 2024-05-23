@@ -20,18 +20,15 @@
     margin-top: 10px;
     background-color: rgb(98, 245, 106);
   }
-  
-  .secao_criar_proprietario .opcoes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    gap: 15px;
+
+  .secao_criar_proprietario .form{
+    min-width: 300px;
   }
 
-  .secao_criar_proprietario .form-control{
+  .secao_criar_proprietario .form-group,
+  .secao_criar_proprietario input{
     text-align: center;
+    margin-top: 10px;
   }
  
   @media screen and (max-width: 768px) {
