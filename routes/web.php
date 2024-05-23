@@ -17,10 +17,15 @@ Route::get('/', [DashboardController::class, 'dash'])->name('principal.dashboard
 /*proprietario*/
 
 Route::get('/graficoIdade', [ProprietarioController::class, 'graficoIdade'])
-->name('principal.graficoIdade');
+    ->name('principal.graficoIdade');
+
+/*veiculo*/
 
 Route::get('/veiculo/{id}/edit', [VeiculoController::class, 'edit'])
-->name('veiculo.edit');
+    ->name('veiculo.edit');
 
 Route::delete('/veiculo/{id}', [VeiculoController::class, 'destroy'])
-->name('veiculo.destroy');
+    ->name('veiculo.destroy');
+
+Route::get('/veiculo/show', [VeiculoController::class, 'show'])
+    ->name('veiculo.show');

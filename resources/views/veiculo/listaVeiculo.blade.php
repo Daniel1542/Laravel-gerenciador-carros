@@ -15,32 +15,41 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Proprietario:</th>    
                         <th>Modelo:</th>
                         <th>Marca:</th>
-                        <th>Placa:</th>     
-                        <th>Proprietario:</th>     
-                        <th>Opções:</th>               
+                        <th>Placa:</th>                    
+                        <th>Editar:</th>   
+                        <th>Excluir:</th>              
                     </tr>
                 </thead>
                 <tbody>
                     {{-- tabela mostrando Veiculos --}}
                     @foreach($veiculosNome as $veiculo)  
                         <tr>
+                            <td> {{ $veiculo->proprietario['nome'] }}</td>
                             <td> {{ $veiculo['modelo'] }}</td>
                             <td> {{ $veiculo['marca'] }}</td> 
-                            <td> {{ $veiculo['placa'] }}</td>
-                            <td> {{ $veiculo->proprietario['nome'] }}</td>
-                            <td class="buttons">
+                            <td> {{ $veiculo['placa'] }}</td>                          
+                            <td>
                                 <form action="{{ route('veiculo.edit', ['id' => $veiculo['id']]) }}" method="GET">
-                                  {{ csrf_field() }}
-                                  <button type="submit" class="btn btn-warning">Editar</button>
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-warning">Editar</button>
                                 </form>
+                            </td>
+                            <td>                                                       
                                 <form action="{{ route('veiculo.destroy', ['id' => $veiculo['id']]) }}" method="POST">
                                   {{ csrf_field() }}
                                   @method('DELETE')
                                   <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
                                 </form>              
-                              </td>      
+                            </td>   
+                            <td>                                                       
+                                <form action="{{ route('veiculo.show', ['id' => $veiculo['id']]) }}" method="GET">
+                                  {{ csrf_field() }}
+                                  <button type="submit" class="btn btn-danger">Mostrar</button>
+                                </form>              
+                            </td>      
                         </tr> 
                     @endforeach   
                 </tbody>

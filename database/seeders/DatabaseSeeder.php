@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Proprietario;
+use App\Models\Veiculo;
+use App\Models\Revisao;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +15,15 @@ class DatabaseSeeder extends Seeder
      *
      */
     public function run()
-    {
-        $this->call([
-            ProprietarioSeeder::class,
-            VeiculoSeeder::class,
-            RevisaoSeeder::class,
-        ]);
+    {  
+        $proprietarios = Proprietario::factory()
+            ->count(10)
+            ->create();
+
+        $proprietarios->each(function ($proprietario) {
+            Veiculo::factory()
+                ->create(['cpf' => $proprietario->cpf]);
+        });
+
     }
 }

@@ -38,8 +38,10 @@ class VeiculoController extends Controller
         $tudo = Veiculo::all();
 
         // veiculos e proprietario
-        $veiculosNome = Veiculo::with('proprietario')->get()->sortBy(function ($veiculo) {
-            return $veiculo->proprietario->nome;
+        $veiculosNome = Veiculo::with('proprietario')
+            ->get()
+            ->sortBy(function ($veiculo) {
+                return $veiculo->proprietario->nome;
         });
 
         // veiculos por genero

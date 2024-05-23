@@ -26,7 +26,7 @@ class VeiculoFactory extends Factory
     public function definition()
     {
         return [
-            'cpf' => Proprietario::factory()->create()->cpf,
+            'cpf' => Proprietario::factory(),
             'modelo' => $this->faker->word, // Nome aleatório de carro
             'marca' => $this->faker->company, // Nome aleatório de companhia
             'placa' => strtoupper($this->faker->bothify('???####')), // Nome aleatório com letras
