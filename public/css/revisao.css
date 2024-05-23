@@ -97,7 +97,6 @@
 
     .secao_revisao {
         margin-top: 100px;
-       
     }
 
     .secao_revisao #caixa{
@@ -127,6 +126,10 @@
 
     .secao_revisao_2 #caixa_2 {
         width: 98vw;
+    }
+
+    .secao_revisao_2 .container {
+        flex-direction: column;
     }
 
 }
