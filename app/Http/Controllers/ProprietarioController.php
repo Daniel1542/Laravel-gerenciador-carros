@@ -118,7 +118,7 @@ class ProprietarioController extends Controller
      */
     public function show(Proprietario $proprietario)
     {
-        return view('proprietario.show', compact('proprietario'));
+        return view('proprietario.mostrarProprietario', compact('proprietario'));
     }
 
     /**
@@ -154,6 +154,7 @@ class ProprietarioController extends Controller
      */
     public function destroy(Proprietario $proprietario)
     {
+        
         $proprietario->delete();
 
         return redirect()->route('proprietario.index')

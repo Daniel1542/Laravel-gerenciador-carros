@@ -20,7 +20,8 @@
                         <th>Marca:</th>
                         <th>Placa:</th>                    
                         <th>Editar:</th>   
-                        <th>Excluir:</th>              
+                        <th>Excluir:</th> 
+                        <th>Mostrar:</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +48,7 @@
                             <td>                                                       
                                 <form action="{{ route('veiculo.show', ['id' => $veiculo['id']]) }}" method="GET">
                                   {{ csrf_field() }}
-                                  <button type="submit" class="btn btn-danger">Mostrar</button>
+                                  <button type="submit" class="btn btn-primary">Mostrar</button>
                                 </form>              
                             </td>      
                         </tr> 

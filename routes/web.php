@@ -19,6 +19,15 @@ Route::get('/', [DashboardController::class, 'dash'])->name('principal.dashboard
 Route::get('/graficoIdade', [ProprietarioController::class, 'graficoIdade'])
     ->name('principal.graficoIdade');
 
+Route::get('/proprietario/{id}/edit', [ProprietarioController::class, 'edit'])
+    ->name('proprietario.edit');
+
+Route::delete('/proprietario/{id}', [ProprietarioController::class, 'destroy'])
+    ->name('proprietario.destroy');
+
+Route::get('/proprietario/{id}', [ProprietarioController::class, 'show'])
+    ->name('proprietario.show');
+
 /*veiculo*/
 
 Route::get('/veiculo/{id}/edit', [VeiculoController::class, 'edit'])
@@ -27,5 +36,16 @@ Route::get('/veiculo/{id}/edit', [VeiculoController::class, 'edit'])
 Route::delete('/veiculo/{id}', [VeiculoController::class, 'destroy'])
     ->name('veiculo.destroy');
 
-Route::get('/veiculo/show', [VeiculoController::class, 'show'])
+Route::get('/veiculo/show{id}', [VeiculoController::class, 'show'])
     ->name('veiculo.show');
+
+/*revisao*/
+
+Route::get('/revisao/{id}/edit', [RevisaoController::class, 'edit'])
+    ->name('revisao.edit');
+
+Route::delete('/revisao/{id}', [RevisaoController::class, 'destroy'])
+    ->name('revisao.destroy');
+
+Route::get('/revisao/show{id}', [RevisaoController::class, 'show'])
+    ->name('revisao.show');

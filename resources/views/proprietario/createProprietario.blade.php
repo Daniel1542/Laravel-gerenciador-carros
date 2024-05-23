@@ -9,7 +9,7 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" o  ninput="this.value = this.value.toUpperCase()" required>
+                <input type="text" id="nome" name="nome" required>
             </div>
             <div class="form-group">
                 <label for="cpf">cpf:</label>
@@ -25,11 +25,11 @@
             </div>
             <div class="form-group">
                 <label for="email">email:</label>
-                <input type="text" id="email" name="email" required>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="telefone">telefone:</label>
-                <input type="number" id="telefone" name="telefone" required>
+                <input type="text" id="telefone" name="telefone" required>
             </div>
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
