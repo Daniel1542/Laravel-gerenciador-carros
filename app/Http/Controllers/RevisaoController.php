@@ -7,7 +7,6 @@ use App\Models\Revisao;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-
 class RevisaoController extends Controller
 {
     private function consultarPessoasComMaisRevisoes()
@@ -15,8 +14,11 @@ class RevisaoController extends Controller
         return DB::table('proprietarios')
             ->join('veiculos', 'proprietarios.cpf', '=', 'veiculos.cpf')
             ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
-            ->select('proprietarios.nome', 'proprietarios.cpf', 
-                    DB::raw('COUNT(revisoes.id) as total_revisoes'))
+            ->select(
+                'proprietarios.nome',
+                'proprietarios.cpf',
+                DB::raw('COUNT(revisoes.id) as total_revisoes')
+            )
             ->groupBy('proprietarios.nome', 'proprietarios.cpf')
             ->orderByDesc('total_revisoes')
             ->get();
@@ -80,7 +82,7 @@ class RevisaoController extends Controller
         return view('revisao.marcasRevisao', compact('marcasMaisRevisoes'));
     }
 
-    
+
     /**
      * Display a listing of the resource.
      */

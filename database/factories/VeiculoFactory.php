@@ -28,7 +28,7 @@ class VeiculoFactory extends Factory
         return [
             'cpf' => Proprietario::factory(),
             'modelo' => $this->faker->word,
-            'marca' => $this->faker->company, 
+            'marca' => $this->faker->company,
             'placa' => $this->faker->unique()->regexify('[A-Z]{3}-[0-9]{4}'),
         ];
     }

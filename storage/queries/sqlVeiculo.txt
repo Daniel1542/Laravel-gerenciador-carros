@@ -1,5 +1,11 @@
 
-#ProprietariosController
+#VeiculoController
+
+#Busca tudo
+
+
+SELECT * FROM proprietarios;
+
 
 #Obter a contagem de veículos por marca em ordem decrescente
 
@@ -27,3 +33,25 @@ SELECT
     CASE WHEN SUM(CASE WHEN proprietarios.sexo = 'M' THEN 1 ELSE 0 END) > SUM(CASE WHEN proprietarios.sexo = 'F' THEN 1 ELSE 0 END) THEN 'Homens' ELSE 'Mulheres' END as maisVeiculos
 FROM veiculos
 JOIN proprietarios ON veiculos.cpf = proprietarios.cpf;
+
+
+#Crud
+
+#Inserção de um novo veículo se a validação do CPF passar
+
+
+SELECT EXISTS(SELECT 1 FROM proprietarios WHERE cpf = :cpf) as cpf_existente;
+INSERT INTO veiculos (cpf, modelo, marca, placa)
+VALUES (:cpf, :modelo, :marca, :placa);
+
+
+SELECT * FROM veiculos WHERE id = :id;
+
+
+SELECT NOT EXISTS(SELECT 1 FROM veiculos WHERE placa = :placa AND id != :id) as placa_unica;
+UPDATE veiculos
+SET modelo = :modelo, marca = :marca, placa = :placa
+WHERE id = :id;
+
+
+DELETE FROM veiculos WHERE id = :id;

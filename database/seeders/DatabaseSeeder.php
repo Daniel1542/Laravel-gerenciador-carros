@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      *
      */
     public function run()
-    {  
+    {
         $proprietarios = Proprietario::factory()
             ->count(10)
             ->create();
@@ -29,6 +29,5 @@ class DatabaseSeeder extends Seeder
             Revisao::factory()
                 ->create(['placa' => $veiculo->placa]);
         });
-
     }
 }

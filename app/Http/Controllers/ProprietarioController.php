@@ -154,7 +154,7 @@ class ProprietarioController extends Controller
      */
     public function destroy(Proprietario $proprietario)
     {
-        
+
         $proprietario->delete();
 
         return redirect()->route('proprietario.index')

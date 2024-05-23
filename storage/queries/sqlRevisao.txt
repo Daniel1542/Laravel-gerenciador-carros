@@ -8,13 +8,6 @@
 SELECT * FROM revisoes;
 
 
-#Verifica se a placa existe na tabela de veículos e insere uma nova revisão
-
-
-SELECT COUNT(*) FROM veiculos WHERE placa = 'valor_da_placa';
-INSERT INTO revisoes (placa, data, descricao) VALUES ('placa', 'data', 'descricao');
-
-
 #Consulta SQL para listar as pessoas com mais revisões:
 
 
@@ -55,3 +48,23 @@ SELECT * FROM revisoes
 JOIN veiculos ON revisoes.placa = veiculos.placa
 WHERE revisoes.data BETWEEN :inicio AND :fim;
 
+#Crud
+
+#Verifica se a placa existe na tabela de veículos e insere uma nova revisão
+
+
+SELECT EXISTS(SELECT 1 FROM veiculos WHERE placa = :placa) as placa_existente;
+INSERT INTO revisoes (placa, data, descricao)
+VALUES (:placa, :data, :descricao);
+
+
+SELECT * FROM revisoes WHERE id = :id;
+
+
+SELECT EXISTS(SELECT 1 FROM veiculos WHERE placa = :placa) as placa_existente;
+UPDATE revisoes
+SET placa = :placa, data = :data, descricao = :descricao
+WHERE id = :id;
+
+
+DELETE FROM revisoes WHERE id = :id;

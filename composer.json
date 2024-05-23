@@ -49,8 +49,8 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
-        "lint": "phpcs --standard=PSR12 --extensions=php --ignore=vendor --report=full ./app ./config ./database ./routes ./tests",
-        "fix": "phpcbf --standard=PSR12 --extensions=php --ignore=vendor ./app ./config ./database ./routes ./tests"
+        "lint": "phpcs --standard=PSR12 --extensions=php --ignore=vendor --report=full ./app ./config ./database ./routes ./storage ./tests",
+        "fix": "phpcbf --standard=PSR12 --extensions=php --ignore=vendor ./app ./config ./database ./routes ./storage ./tests"
     },
     "extra": {
         "laravel": {

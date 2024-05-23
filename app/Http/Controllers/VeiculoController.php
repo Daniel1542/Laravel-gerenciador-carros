@@ -31,7 +31,7 @@ class VeiculoController extends Controller
             'maisVeiculos' => $maisVeiculos,
         ];
     }
-    
+
     /**
      * Display a listing of the resource.
      */
@@ -44,20 +44,20 @@ class VeiculoController extends Controller
             ->groupBy('marca')
             ->orderByDesc('total_veiculos')
             ->get();
-    
+
         // veiculos e proprietario
         $veiculosNome = Veiculo::with('proprietario')
             ->get()
             ->sortBy(function ($veiculo) {
                 return $veiculo->proprietario->nome;
-        });
+            });
 
         // veiculos por genero
         $veiculosSexo = Veiculo::with('proprietario')->get();
 
         $totalSexo = $this->VeiculosPorGenero($veiculosSexo);
 
-        return view('veiculo.listaVeiculo', compact('tudo', 'veiculosNome', 'totalSexo','marcas'));
+        return view('veiculo.listaVeiculo', compact('tudo', 'veiculosNome', 'totalSexo', 'marcas'));
     }
 
     /**

@@ -20,5 +20,4 @@ class DashboardController extends Controller
 
         return view('principal.dashboard', compact('totalVeiculo', 'totalProprietario', 'totalRevisao'));
     }
-
 }

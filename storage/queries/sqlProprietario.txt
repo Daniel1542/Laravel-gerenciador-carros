@@ -25,3 +25,24 @@ SELECT sexo, AVG(idade) AS media_idade FROM proprietarios GROUP BY sexo;
 
 
 SELECT sexo, SUM(idade) AS soma_idades FROM proprietarios GROUP BY sexo;
+
+
+#Crud
+
+
+SELECT EXISTS(SELECT 1 FROM proprietarios WHERE cpf = :cpf) as cpf_existente;
+INSERT INTO proprietarios (nome, cpf, idade, telefone, sexo, email)
+VALUES (:nome, :cpf, :idade, :telefone, :sexo, :email);
+
+
+SELECT * FROM proprietarios WHERE cpf = :cpf;
+
+
+
+SELECT EXISTS(SELECT 1 FROM proprietarios WHERE cpf = :cpf AND id <> :id) as cpf_existente;
+UPDATE proprietarios
+SET nome = :nome, cpf = :cpf, idade = :idade, telefone = :telefone, sexo = :sexo, email = :email
+WHERE id = :id;
+
+
+DELETE FROM proprietarios WHERE id = :id;
