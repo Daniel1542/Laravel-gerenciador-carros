@@ -83,17 +83,19 @@ use Carbon\Carbon;
             <p>Nenhuma pessoa encontrada com revisões.</p>
           @endif                                                          
         </div>
+      </div>
+      <div class="card">  
         <div class="card-body">
           <h5 class="card-title">Média de Tempo Entre Revisões</h5>
-            @if ($mediaTempo)
-                <ul>
-                    @foreach ($mediaTempo as $cpf => $media)
-                        <li>Pessoa com CPF {{ $cpf }}: {{ $media }} segundos</li>
-                    @endforeach
-                </ul>
-            @else
-                <p>Nenhum dado disponível.</p>
-            @endif                                                        
+          @if ($mediaTempo)
+            <ul>
+              @foreach ($mediaTempo as $cpf => $media)
+                <li>Pessoa com CPF {{ $cpf }}: {{ round($media / 60, 2) }} minutos</li>
+              @endforeach
+            </ul>
+          @else
+            <p>Nenhum dado disponível.</p>
+          @endif                                                        
         </div>
       </div>
     </div>

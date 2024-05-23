@@ -22,7 +22,7 @@ class RevisaoController extends Controller
             ->get();
     }
 
-    private function mediaTempoEntreRevisoes()
+    private function calcularMediaTempoEntreRevisoes()
     {
         $resultados = DB::table('proprietarios')
             ->join('veiculos', 'proprietarios.cpf', '=', 'veiculos.cpf')
@@ -80,20 +80,7 @@ class RevisaoController extends Controller
         return view('revisao.marcasRevisao', compact('marcasMaisRevisoes'));
     }
 
-   
-
-    public function proximasRevisoes()
-    {
-        $proximasRevisoes = DB::table('revisoes')
-            ->select('placa', DB::raw('DATE_ADD(MAX(data), INTERVAL media_tempo_entre_revisoes DAY) as proxima_revisao'))
-            ->joinSub($this->mediaTempoEntreRevisoes(), 'media_tempo_entre_revisoes', function ($join) {
-                $join->on('revisoes.placa', '=', 'media_tempo_entre_revisoes.placa');
-            })
-            ->groupBy('placa')
-            ->get();
-
-        return view('proximas_revisoes', ['proximasRevisoes' => $proximasRevisoes]);
-    }
+    
     /**
      * Display a listing of the resource.
      */
@@ -102,7 +89,7 @@ class RevisaoController extends Controller
         $total = Revisao::all();
 
         $pessoasComMaisRevisoes = $this->consultarPessoasComMaisRevisoes();
-        $mediaTempo = $this->mediaTempoEntreRevisoes();
+        $mediaTempo = $this->calcularMediaTempoEntreRevisoes();
 
         return view('revisao.listaRevisao', compact('total', 'pessoasComMaisRevisoes', 'mediaTempo'));
     }
