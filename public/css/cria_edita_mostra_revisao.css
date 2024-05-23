@@ -30,6 +30,14 @@
     text-align: center;
     margin-top: 10px;
   }
+
+  .secao_cria_edita_mostra_revisao #revisao{
+    padding: 50px 40px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box;
+  }
+
  
   @media screen and (max-width: 768px) {
   

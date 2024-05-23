@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="/css/dash.css">
   <link rel="stylesheet" href="/css/proprietario.css">
   <link rel="stylesheet" href="/css/veiculo.css">
+  <link rel="stylesheet" href="/css/revisao.css">
   <link rel="stylesheet" href="/css/cria_edita_mostra_veiculo.css">
+  <link rel="stylesheet" href="/css/cria_edita_mostra_revisao.css">
   <link rel="stylesheet" href="/css/cria_edita_mostra_proprietario.css">
 
   <!-- Font awesome -->
@@ -37,8 +39,10 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Veículo</a></li>
-          <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastro Proprietário</a></li>
+          <li><a class="dropdown-item" href="{{ route('veiculo.create')}}">Cadastrar Veículo</a></li>
           <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Proprietário</a></li>
+          <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar Proprietário</a></li>
+          <li><a class="dropdown-item" href="{{ route('revisao.create')}}">Cadastrar Revisões</a></li>
           <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Revisões</a></li>
         </ul>    
       </div>
@@ -49,7 +53,7 @@
         Veículo
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar</a></li>
+        <li><a class="dropdown-item" href="{{ route('veiculo.create')}}">Cadastrar Veículo</a></li>
         <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
       </ul>    
     </div>
@@ -67,7 +71,7 @@
         Revisões
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar</a></li>
+        <li><a class="dropdown-item" href="{{ route('revisao.create')}}">Cadastrar</a></li>
         <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Mostrar</a></li>
       </ul>    
     </div>
