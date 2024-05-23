@@ -37,6 +37,12 @@
                 <input type="text" id="telefone" name="telefone" value="{{ $proprietario->telefone }}" readonly required>
             </div>
         </div>
+        <div class="buttons">
+            <form action="{{ route('proprietario.index') }}" method="GET">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-primary">Voltar</button>
+            </form>
+        </div>
     </div>
 </section>
 

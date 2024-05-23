@@ -11,15 +11,15 @@
         @method('PUT')
         <div class="form-group"> 
             <label for="modelo">modelo:</label>
-            <input type="text" id="modelo" name="modelo"value="{{ $veiculo->modelo }}" required>
+            <input type="text" id="modelo" name="modelo" value="{{ $veiculo->modelo }}" required>
         </div>
         <div class="form-group"> 
             <label for="marca">marca:</label>
-            <input type="text" id="marca" name="marca"value="{{ $veiculo->marca }}" required>
+            <input type="text" id="marca" name="marca" value="{{ $veiculo->marca }}" required>
         </div>
         <div class="form-group">
             <label for="placa">placa:</label>
-            <input type="text" id="placa" name="placa"value="{{ $veiculo->placa }}" required>
+            <input type="text" id="placa" name="placa" value="{{ $veiculo->placa }}" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Cadastrar</button>

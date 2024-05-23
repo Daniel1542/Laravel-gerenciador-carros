@@ -25,6 +25,12 @@
                 <input type="text" id="marca" name="marca" value="{{ $veiculo->marca }}" required>
             </div>
         </div>
+        <div class="buttons">
+            <form action="{{ route('veiculo.index') }}" method="GET">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-primary">Voltar</button>
+            </form>
+        </div>
     </div>
 </section>
 

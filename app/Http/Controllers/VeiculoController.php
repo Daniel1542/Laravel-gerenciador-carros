@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Proprietario;
+use Illuminate\Support\Facades\DB;
 use App\Models\Veiculo;
 
 class VeiculoController extends Controller
@@ -30,6 +31,7 @@ class VeiculoController extends Controller
             'maisVeiculos' => $maisVeiculos,
         ];
     }
+    
     /**
      * Display a listing of the resource.
      */
@@ -37,6 +39,12 @@ class VeiculoController extends Controller
     {
         $tudo = Veiculo::all();
 
+          // veiculos por ordem
+        $marcas = Veiculo::select('marca', DB::raw('count(*) as total_veiculos'))
+            ->groupBy('marca')
+            ->orderByDesc('total_veiculos')
+            ->get();
+    
         // veiculos e proprietario
         $veiculosNome = Veiculo::with('proprietario')
             ->get()
@@ -49,7 +57,7 @@ class VeiculoController extends Controller
 
         $totalSexo = $this->VeiculosPorGenero($veiculosSexo);
 
-        return view('veiculo.listaVeiculo', compact('tudo', 'veiculosNome', 'totalSexo'));
+        return view('veiculo.listaVeiculo', compact('tudo', 'veiculosNome', 'totalSexo','marcas'));
     }
 
     /**
