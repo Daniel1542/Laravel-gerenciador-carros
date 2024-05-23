@@ -27,9 +27,9 @@ class VeiculoFactory extends Factory
     {
         return [
             'cpf' => Proprietario::factory(),
-            'modelo' => $this->faker->word, // Nome aleatório de carro
-            'marca' => $this->faker->company, // Nome aleatório de companhia
-            'placa' => strtoupper($this->faker->bothify('???####')), // Nome aleatório com letras
+            'modelo' => $this->faker->word,
+            'marca' => $this->faker->company, 
+            'placa' => $this->faker->unique()->regexify('[A-Z]{3}-[0-9]{4}'),
         ];
     }
 }

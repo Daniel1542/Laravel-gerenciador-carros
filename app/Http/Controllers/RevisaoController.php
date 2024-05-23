@@ -71,11 +71,11 @@ class RevisaoController extends Controller
     public function marcasComMaisRevisoes()
     {
         $marcasMaisRevisoes = DB::table('veiculos')
-            ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
-            ->select('veiculos.marca', DB::raw('COUNT(revisoes.id) as total_revisoes'))
-            ->groupBy('veiculos.marca')
-            ->orderByDesc('total_revisoes')
-            ->get();
+                ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
+                ->select('veiculos.marca', DB::raw('COUNT(revisoes.id) as total_revisoes'))
+                ->groupBy('veiculos.marca')
+                ->orderByDesc('total_revisoes')
+                ->get();
 
         return view('revisao.marcasRevisao', compact('marcasMaisRevisoes'));
     }

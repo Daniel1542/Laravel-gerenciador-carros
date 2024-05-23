@@ -25,5 +25,10 @@ class DatabaseSeeder extends Seeder
                 ->create(['cpf' => $proprietario->cpf]);
         });
 
+        Veiculo::all()->each(function ($veiculo) {
+            Revisao::factory()
+                ->create(['placa' => $veiculo->placa]);
+        });
+
     }
 }
