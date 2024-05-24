@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('revisoes', function (Blueprint $table) {
             $table->id();
-            $table->string('placa');
-            $table->foreign('placa')->references('placa')->on('veiculos')->onDelete('cascade');
+            $table->unsignedBigInteger('id_veiculo');
+            $table->foreign('id_veiculo')->references('id')->on('veiculos')->onDelete('cascade');
             $table->date('data');
             $table->string('descricao');
             $table->timestamps();

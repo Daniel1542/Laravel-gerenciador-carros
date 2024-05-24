@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group">
                     <label for="cpf">cpf:</label>
-                    <input type="text" id="cpf" name="cpf" required>
+                    <input type="number" id="cpf" name="cpf" required>
                 </div>
                 <div class="form-group"> 
                     <label for="sexo">sexo:</label>

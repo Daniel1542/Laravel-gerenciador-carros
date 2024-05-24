@@ -11,7 +11,7 @@ class Veiculo extends Model
 
     protected $table = 'veiculos';
     protected $fillable = [
-        'cpf',
+        'id_proprietario',
         'modelo',
         'marca',
         'placa',
@@ -19,11 +19,11 @@ class Veiculo extends Model
 
     public function revisoes()
     {
-        return $this->hasMany(Revisao::class, 'placa', 'placa');
+        return $this->hasMany(Revisao::class, 'id_veiculo');
     }
 
     public function proprietario()
     {
-        return $this->belongsTo(Proprietario::class, 'cpf', 'cpf');
+        return $this->belongsTo(Proprietario::class, 'id_proprietario');
     }
 }

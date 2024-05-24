@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('veiculos', function (Blueprint $table) {
             $table->id();
-            $table->string('cpf');
-            $table->foreign('cpf')->references('cpf')->on('proprietarios')->onDelete('cascade');
+            $table->unsignedBigInteger('id_proprietario');
+            $table->foreign('id_proprietario')->references('id')->on('proprietarios')->onDelete('cascade');
             $table->string('modelo');
             $table->string('marca');
             $table->string('placa')->unique();

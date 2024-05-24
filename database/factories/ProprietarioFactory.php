@@ -27,7 +27,7 @@ class ProprietarioFactory extends Factory
         return [
             'nome' => $this->faker->name,
             'cpf' => $this->faker->unique()->numerify('############'),
-            'idade' => $this->faker->numberBetween(18, 80),
+            'idade' => $this->faker->numberBetween(18, 88),
             'sexo' => $this->faker->randomElement(['M', 'F']),
             'email' => $this->faker->unique()->safeEmail,
             'telefone' => $this->faker->phoneNumber,

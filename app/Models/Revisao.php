@@ -11,13 +11,13 @@ class Revisao extends Model
 
     protected $table = 'revisoes';
     protected $fillable = [
-        'placa',
+        'id_veiculo',
         'data',
         'descricao',
     ];
 
     public function veiculo()
     {
-        return $this->belongsTo(Veiculo::class, 'placa', 'placa');
+        return $this->belongsTo(Veiculo::class, 'id_veiculo');
     }
 }

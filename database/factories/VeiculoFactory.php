@@ -26,6 +26,9 @@ class VeiculoFactory extends Factory
     public function definition()
     {
         return [
+            'id_proprietario' => function () {
+                return Proprietario::factory()->create()->id;
+            },
             'cpf' => Proprietario::factory(),
             'modelo' => $this->faker->word,
             'marca' => $this->faker->company,

@@ -21,6 +21,6 @@ class Proprietario extends Model
 
     public function veiculo()
     {
-        return $this->hasMany(Veiculo::class, 'cpf', 'cpf');
+        return $this->hasMany(Veiculo::class, 'id_proprietario', 'id');
     }
 }
