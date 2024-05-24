@@ -103,8 +103,6 @@
       <a href="#">Contato</a>
     </nav>
   </footer>
-  
-  <script src="js/modal_add_ativos.js"></script>
 
 </body>
 </html>

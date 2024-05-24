@@ -48,6 +48,13 @@ services:
                 - '${DB_USERNAME}'
             retries: 3
             timeout: 5s
+    ngrok:
+        image: wernight/ngrok
+        command: ngrok http app:8000
+        ports:
+            - "4040:4040"
+        depends_on:
+            - app
 networks:
     sail:
         driver: bridge
