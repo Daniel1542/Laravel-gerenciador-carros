@@ -29,7 +29,6 @@ class VeiculoFactory extends Factory
             'id_proprietario' => function () {
                 return Proprietario::factory()->create()->id;
             },
-            'cpf' => Proprietario::factory(),
             'modelo' => $this->faker->word,
             'marca' => $this->faker->company,
             'placa' => $this->faker->unique()->regexify('[A-Z]{3}-[0-9]{4}'),

@@ -30,6 +30,9 @@ Route::get('/proprietario/{id}', [ProprietarioController::class, 'show'])
 
 /*veiculo*/
 
+Route::get('/veiculo/{id}/create', [VeiculoController::class, 'create'])
+    ->name('veiculo.create');
+
 Route::get('/veiculo/{id}/edit', [VeiculoController::class, 'edit'])
     ->name('veiculo.edit');
 

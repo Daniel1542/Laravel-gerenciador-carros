@@ -22,12 +22,12 @@ class DatabaseSeeder extends Seeder
 
         $proprietarios->each(function ($proprietario) {
             Veiculo::factory()
-                ->create(['cpf' => $proprietario->cpf]);
+                ->create(['id_proprietario' => $proprietario->id]);
         });
 
         Veiculo::all()->each(function ($veiculo) {
             Revisao::factory()
-                ->create(['placa' => $veiculo->placa]);
+                ->create(['id_veiculo' => $veiculo->id]);
         });
     }
 }

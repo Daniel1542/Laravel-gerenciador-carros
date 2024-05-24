@@ -63,10 +63,15 @@ class VeiculoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
+        $proprietario = Proprietario::find($id);
 
-        return view('veiculo.createVeiculo');
+        if (!$proprietario) {
+            return redirect()->back()->with('msg', 'Proprietário não encontrado.');
+        }
+
+        return view('veiculo.createVeiculo', compact('proprietario'));
     }
 
     /**

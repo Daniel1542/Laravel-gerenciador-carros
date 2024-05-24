@@ -39,7 +39,6 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Veículo</a></li>
-          <li><a class="dropdown-item" href="{{ route('veiculo.create')}}">Cadastrar Veículo</a></li>
           <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Proprietário</a></li>
           <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar Proprietário</a></li>
           <li><a class="dropdown-item" href="{{ route('revisao.create')}}">Cadastrar Revisões</a></li>
@@ -54,7 +53,6 @@
         Veículo
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{{ route('veiculo.create')}}">Cadastrar Veículo</a></li>
         <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Mostrar</a></li>
       </ul>    
     </div>

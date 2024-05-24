@@ -9,8 +9,8 @@
             <form action="{{ route('veiculo.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="cpf">cpf:</label>
-                    <input type="text" id="cpf" name="cpf" required>
+                    <label for="nome">nome:</label>
+                    <input type="text" id="nome" name="nome" value="{{ $proprietario->nome }}" required>
                 </div>
                 <div class="form-group"> 
                     <label for="modelo">modelo:</label>

@@ -22,20 +22,19 @@
                         <th>Email:</th>
                         <th>Telefone:</th>   
                         <th>Editar:</th>   
-                        <th>Excluir:</th> 
-                        <th>Mostrar:</th>               
+                        <th>Excluir:</th>         
                     </tr>
                 </thead>
                 <tbody>
                     {{-- tabela mostrando proprietarios --}}
                     @foreach($total as $dono)  
                         <tr>
-                            <td> {{ $dono['nome'] }}</td>
+                            <td> <a href="{{ route('veiculo.create', ['id' => $dono->id]) }}">{{ $dono['nome'] }}</a> </td>
                             <td> {{ $dono['cpf'] }}</td> 
                             <td> {{ $dono['sexo'] }}</td>
                             <td> {{ $dono['idade'] }}</td>
                             <td> {{ $dono['email'] }}</td>
-                            <td> {{ $dono['telefone'] }} </td>   
+                            <td> {{ $dono['telefone'] }}</td>   
                             <td>
                                 <form action="{{ route('proprietario.edit', ['id' => $dono['id']]) }}" method="GET">
                                     {{ csrf_field() }}
@@ -48,13 +47,7 @@
                                   @method('DELETE')
                                   <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
                                 </form>              
-                            </td>   
-                            <td>                                                       
-                                <form action="{{ route('proprietario.show', ['id' => $dono['id']]) }}" method="GET">
-                                  {{ csrf_field() }}
-                                  <button type="submit" class="btn btn-primary">Mostrar</button>
-                                </form>              
-                            </td>      
+                            </td>       
                         </tr> 
                     @endforeach   
                 </tbody>
