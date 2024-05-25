@@ -76,7 +76,7 @@
   </header>
   <main>
     @if (session('msg'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger mt-4">
       {{ session('msg') }}
     </div>
     @endif

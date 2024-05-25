@@ -1,6 +1,6 @@
 .secao_revisao {
     margin-top: 200px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     padding: 0;
 }
 
@@ -36,7 +36,7 @@
     background-color: rgb(196, 110, 104);
     padding: 30px;
     min-width: 1000px;
-    margin-top: 180px;
+    
     border: 1px solid #d3a4a4;
     border-radius: 5px;
 }
@@ -50,6 +50,7 @@
 }
 
 .secao_revisao .table{    
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -96,17 +97,14 @@
 @media screen and (max-width: 768px) {
 
     .secao_revisao {
-        margin-top: 100px;
+        margin-top: 150px;
+        margin-bottom: 50px;
     }
 
     .secao_revisao #caixa{
         width: 98vw;
         min-width: 100px;
         padding: 10px;
-    }
-
-    .secao_revisao .table{
-        width: 100%;
     }
 
     .secao_revisao .table-responsive {

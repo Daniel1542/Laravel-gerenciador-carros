@@ -5,17 +5,6 @@
   }
   
   /*main*/
-  .msm{
-    margin-top: 200px;
-    display: flex;
-    align-items: center;
-    background-color: #2de627;
-    width: 100%;
-  }
-  
-  .alert {
-    margin-top: 200px;
-  }
   
   .form-group{
     display: flex;
@@ -53,7 +42,6 @@
   header{
     display: flex;
     justify-content: center;
-    z-index: 1000;
     position: fixed;
     align-items: center;
     width: 100%;
@@ -118,6 +106,7 @@
   
     header{
       justify-content: space-around;
+      z-index: 10;
     }
   
     footer{

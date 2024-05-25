@@ -80,10 +80,10 @@ class VeiculoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_proprietario' => 'exists:proprietarios,cpf',
-            'modelo' => 'string',
-            'marca' => 'string',
-            'placa' => 'required|unique:veiculos',
+            'id_proprietario' => 'exists:proprietarios,id',
+            'modelo' => 'string|max:15',
+            'marca' => 'string|max:15',
+            'placa' => 'string|max:15|unique:veiculos',
         ]);
 
         Veiculo::create($request->all());
@@ -114,9 +114,10 @@ class VeiculoController extends Controller
     public function update(Request $request, Veiculo $veiculo)
     {
         $request->validate([
+            'id_proprietario' => 'exists:proprietarios,id' . $veiculo->id,
             'modelo' => 'string',
             'marca' => 'string',
-            'placa' => 'required|unique:veiculos,placa,' . $veiculo->id,
+            'placa' => 'unique:veiculos',
         ]);
 
         $veiculo->update($request->all());
