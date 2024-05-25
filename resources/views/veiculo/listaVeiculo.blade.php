@@ -4,13 +4,7 @@
 {{-- Seção para mostrar Veiculos --}}
 <section class="secao_veiculo">
     <div class="container" id="caixa">
-        <h1 class="text-center mb-4">Veiculos</h1>
-        <div class="buttons mt-4">
-            <form action="{{ route('veiculo.create') }}" method="GET">
-              {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </form>
-        </div>
+        <h1 class="text-center mb-4 mt-4">Veiculos</h1>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -21,14 +15,13 @@
                         <th>Placa:</th>                    
                         <th>Editar:</th>   
                         <th>Excluir:</th> 
-                        <th>Mostrar:</th> 
                     </tr>
                 </thead>
                 <tbody>
                     {{-- tabela mostrando Veiculos --}}
                     @foreach($veiculosNome as $veiculo)  
                         <tr>
-                            <td> {{ $veiculo->proprietario['nome'] }}</td>
+                            <td> <a href="{{ route('revisao.create', ['id' => $veiculo->id]) }}">{{  $veiculo->proprietario['nome']}}</a> </td>
                             <td> {{ $veiculo['modelo'] }}</td>
                             <td> {{ $veiculo['marca'] }}</td> 
                             <td> {{ $veiculo['placa'] }}</td>                          
@@ -44,13 +37,7 @@
                                   @method('DELETE')
                                   <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
                                 </form>              
-                            </td>   
-                            <td>                                                       
-                                <form action="{{ route('veiculo.show', ['id' => $veiculo['id']]) }}" method="GET">
-                                  {{ csrf_field() }}
-                                  <button type="submit" class="btn btn-primary">Mostrar</button>
-                                </form>              
-                            </td>      
+                            </td>         
                         </tr> 
                     @endforeach   
                 </tbody>

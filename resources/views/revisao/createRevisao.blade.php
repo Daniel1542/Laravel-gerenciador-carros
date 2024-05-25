@@ -10,7 +10,7 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="placa">placa:</label>
-                    <input type="text" id="placa" name="placa" required>
+                    <input type="text" id="placa" name="placa" value="{{ $veiculo->placa }}" required>
                 </div>
                 <div class="form-group">
                     <label for="data">data:</label>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Veiculo;
 use App\Models\Revisao;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -12,14 +13,14 @@ class RevisaoController extends Controller
     private function consultarPessoasComMaisRevisoes()
     {
         return DB::table('proprietarios')
-            ->join('veiculos', 'proprietarios.cpf', '=', 'veiculos.cpf')
-            ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
+            ->join('veiculos', 'proprietarios.id', '=', 'veiculos.id_proprietario')
+            ->join('revisoes', 'veiculos.id', '=', 'revisoes.id_veiculo')
             ->select(
                 'proprietarios.nome',
-                'proprietarios.cpf',
+                'proprietarios.id',
                 DB::raw('COUNT(revisoes.id) as total_revisoes')
             )
-            ->groupBy('proprietarios.nome', 'proprietarios.cpf')
+            ->groupBy('proprietarios.nome', 'proprietarios.id')
             ->orderByDesc('total_revisoes')
             ->get();
     }
@@ -27,8 +28,8 @@ class RevisaoController extends Controller
     private function calcularMediaTempoEntreRevisoes()
     {
         $resultados = DB::table('proprietarios')
-            ->join('veiculos', 'proprietarios.cpf', '=', 'veiculos.cpf')
-            ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
+            ->join('veiculos', 'proprietarios.id', '=', 'veiculos.id_proprietario')
+            ->join('revisoes', 'veiculos.id', '=', 'revisoes.id_veiculo')
             ->select('proprietarios.nome', 'proprietarios.cpf', 'revisoes.data')
             ->orderBy('proprietarios.cpf')
             ->orderBy('revisoes.data')
@@ -73,7 +74,7 @@ class RevisaoController extends Controller
     public function marcasComMaisRevisoes()
     {
         $marcasMaisRevisoes = DB::table('veiculos')
-                ->join('revisoes', 'veiculos.placa', '=', 'revisoes.placa')
+                ->join('revisoes', 'veiculos.id', '=', 'revisoes.id_veiculo')
                 ->select('veiculos.marca', DB::raw('COUNT(revisoes.id) as total_revisoes'))
                 ->groupBy('veiculos.marca')
                 ->orderByDesc('total_revisoes')
@@ -99,9 +100,15 @@ class RevisaoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        return view('revisao.createRevisao');
+        $veiculo = Veiculo::find($id);
+
+        if (!$veiculo) {
+            return redirect()->back()->with('msg', 'Veiculo não encontrado.');
+        }
+
+        return view('revisao.createRevisao', compact('veiculo'));
     }
 
     /**

@@ -44,6 +44,9 @@ Route::get('/veiculo/{id}', [VeiculoController::class, 'show'])
 
 /*revisao*/
 
+Route::get('/revisao/{id}/create', [RevisaoController::class, 'create'])
+    ->name('revisao.create');
+
 Route::get('/revisao/{id}/edit', [RevisaoController::class, 'edit'])
     ->name('revisao.edit');
 

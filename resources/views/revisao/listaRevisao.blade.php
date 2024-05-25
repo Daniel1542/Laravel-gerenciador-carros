@@ -35,14 +35,13 @@ use Carbon\Carbon;
                 <th>descricao:</th>    
                 <th>Editar:</th>   
                 <th>Excluir:</th> 
-                <th>Mostrar:</th>                  
             </tr>
         </thead>
         <tbody>
           {{-- tabela mostrando revisões --}}
           @foreach($total as $revisao)  
             <tr>
-              <td> {{ $revisao['placa'] }}</td>
+              <td> {{ $revisao->veiculo['placa'] }}</td>
               <td> {{Carbon::parse($revisao->data)->format('d/m/Y') }}</td> 
               <td> {{ $revisao['descricao'] }}</td>
               <td>
@@ -57,13 +56,7 @@ use Carbon\Carbon;
                   @method('DELETE')
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
                 </form>              
-              </td>   
-              <td>                                                       
-                <form action="{{ route('revisao.show', ['id' => $revisao['id']]) }}" method="GET">
-                  {{ csrf_field() }}
-                  <button type="submit" class="btn btn-primary">Mostrar</button>
-                </form>              
-              </td>   
+              </td>     
             </tr> 
           @endforeach   
         </tbody>

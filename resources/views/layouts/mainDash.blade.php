@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/app.css">
   <link rel="stylesheet" href="/css/dash.css">
-  <link rel="stylesheet" href="/css/proprietario.css">
-  <link rel="stylesheet" href="/css/veiculo.css">
-  <link rel="stylesheet" href="/css/revisao.css">
+  <link rel="stylesheet" href="/css/lista_proprietario.css">
+  <link rel="stylesheet" href="/css/lista_veiculo.css">
+  <link rel="stylesheet" href="/css/lista_revisao.css">
   <link rel="stylesheet" href="/css/cria_edita_mostra_veiculo.css">
   <link rel="stylesheet" href="/css/cria_edita_mostra_revisao.css">
   <link rel="stylesheet" href="/css/cria_edita_mostra_proprietario.css">
@@ -41,7 +41,6 @@
           <li><a class="dropdown-item" href="{{ route('veiculo.index')}}">Veículo</a></li>
           <li><a class="dropdown-item" href="{{ route('proprietario.index')}}">Proprietário</a></li>
           <li><a class="dropdown-item" href="{{ route('proprietario.create')}}">Cadastrar Proprietário</a></li>
-          <li><a class="dropdown-item" href="{{ route('revisao.create')}}">Cadastrar Revisões</a></li>
           <li><a class="dropdown-item" href="{{ route('revisao.marcasComMaisRevisoes')}}">Marcas e Revisões</a></li>
           <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Revisões</a></li>
         </ul>    
@@ -70,7 +69,6 @@
         Revisões
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{{ route('revisao.create')}}">Cadastrar</a></li>
         <li><a class="dropdown-item" href="{{ route('revisao.index')}}">Mostrar</a></li>
         <li><a class="dropdown-item" href="{{ route('revisao.marcasComMaisRevisoes')}}">Marcas e Revisões</a></li>
       </ul>    

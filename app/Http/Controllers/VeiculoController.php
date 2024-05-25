@@ -80,7 +80,7 @@ class VeiculoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cpf' => 'exists:proprietarios,cpf',
+            'id_proprietario' => 'exists:proprietarios,cpf',
             'modelo' => 'string',
             'marca' => 'string',
             'placa' => 'required|unique:veiculos',

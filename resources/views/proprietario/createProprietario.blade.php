@@ -1,10 +1,10 @@
 @extends('layouts.mainDash')
-@section('title', 'Cadastro')
+@section('title', 'Cadastro de proprietario')
 @section('content')
 
 <section class="secao_criar_proprietario">
     <div class="container" id="caixa">
-        <h1 class="mb-2 text-center">Cadastrar</h1>
+        <h1 class="mb-2 text-center">Cadastrar proprietario</h1>
         <div class="form">
             <form action="{{ route('proprietario.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -18,7 +18,10 @@
                 </div>
                 <div class="form-group"> 
                     <label for="sexo">sexo:</label>
-                    <input type="text" id="sexo" name="sexo" required>
+                    <select id="sexo" name="sexo" required>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
                 </div>
                 <div class="form-group"> 
                     <label for="idade">idade:</label>
