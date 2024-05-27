@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $proprietarios = Proprietario::factory()
-            ->count(10)
+            ->count(15)
             ->create();
 
         $proprietarios->each(function ($proprietario) {

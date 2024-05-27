@@ -8,9 +8,10 @@
         <div class="form">
             <form action="{{ route('revisao.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
+                <input type="hidden" name="id_veiculo" value="{{ $veiculo->id }}">
                 <div class="form-group">
                     <label for="placa">placa:</label>
-                    <input type="text" id="placa" name="placa" value="{{ $veiculo->placa }}" required>
+                    <input type="text" id="placa" name="placa" value="{{ $revisao->veiculo }}" required>
                 </div>
                 <div class="form-group">
                     <label for="data">data:</label>

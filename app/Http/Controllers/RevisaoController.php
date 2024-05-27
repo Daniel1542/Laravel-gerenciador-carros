@@ -117,9 +117,10 @@ class RevisaoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'exists:veiculos,placa',
+            'id_veiculo' => 'exists:veiculos,id',
+            'placa' => 'string|max:14|exists:veiculos,placa',
             'data' => 'date',
-            'descricao' => 'string',
+            'descricao' => 'string|max:50',
         ]);
 
         Revisao::create($request->all());
@@ -150,9 +151,10 @@ class RevisaoController extends Controller
     public function update(Request $request, Revisao $revisao)
     {
         $request->validate([
-            'placa' => 'required|exists:veiculos,placa',
-            'data' => 'required|date',
-            'descricao' => 'required|string',
+            'id_veiculo' => 'exists:veiculos,id',
+            'placa' => 'string|max:14|exists:veiculos,placa',
+            'data' => 'date',
+            'descricao' => 'string|max:50',
         ]);
 
         $revisao->update($request->all());

@@ -6,6 +6,10 @@
   
   /*main*/
   
+  .alert{
+    z-index: 1000;
+  }
+
   .form-group{
     display: flex;
     gap: 2px;
@@ -40,6 +44,7 @@
   }
   
   header{
+    z-index: 100;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -106,7 +111,6 @@
   
     header{
       justify-content: space-around;
-      z-index: 10;
     }
   
     footer{

@@ -10,10 +10,6 @@
         {{ csrf_field() }}
         @method('PUT')
         <div class="form-group">
-          <label for="placa">placa:</label>
-          <input type="text" id="placa" name="placa" value="{{ $revisao->placa }}" required>
-        </div>
-        <div class="form-group">
             <label for="data">data:</label>
             <input type="date" id="data" name="data" value="{{ $revisao->data }}" required>
         </div>

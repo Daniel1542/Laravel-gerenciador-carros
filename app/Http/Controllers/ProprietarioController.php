@@ -135,12 +135,12 @@ class ProprietarioController extends Controller
     public function update(Request $request, Proprietario $proprietario)
     {
         $request->validate([
-            'nome' => 'required',
-            'cpf' => 'required|unique:proprietarios,cpf,' . $proprietario->id,
-            'idade' => 'required|integer',
-            'telefone' => 'required',
-            'sexo' => 'required',
-            'email' => 'nullable|email',
+            'nome' => 'string|max:40',
+            'cpf' => 'min:11|max:11|unique:proprietarios',
+            'idade' => 'int|max:3',
+            'telefone' => 'string|max:15',
+            'sexo' => 'in:M,F',
+            'email' => 'max:18|email|nullable|unique:proprietarios',
         ]);
 
         $proprietario->update($request->all());
