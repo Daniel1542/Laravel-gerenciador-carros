@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email">
                 </div>
                 <div class="form-group">
                     <label for="telefone">telefone:</label>

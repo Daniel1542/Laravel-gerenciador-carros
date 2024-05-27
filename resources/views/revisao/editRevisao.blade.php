@@ -10,12 +10,16 @@
         {{ csrf_field() }}
         @method('PUT')
         <div class="form-group">
+          <label for="placa">placa:</label>
+          <input type="text" id="placa" name="placa" value="{{ $revisao->veiculo->placa }}" readonly required>
+        </div>
+        <div class="form-group">
             <label for="data">data:</label>
             <input type="date" id="data" name="data" value="{{ $revisao->data }}" required>
         </div>
         <div class="form-group"> 
             <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" value="{{ $revisao->descricao }}" required></textarea>
+            <textarea id="descricao" name="descricao" required>{{ old('descricao', $revisao->descricao) }}</textarea>
         </div>
         <div class="form-group mt-4">
             <button type="submit" class="btn btn-primary">Editar</button>

@@ -11,7 +11,7 @@
                 <input type="hidden" name="id_proprietario" value="{{ $proprietario->id }}">
                 <div class="form-group">
                     <label for="nome_dono">nome do dono:</label>
-                    <input type="text" id="nome_dono" name="nome_dono" value="{{ $proprietario->nome }}" required>
+                    <input type="text" id="nome_dono" name="nome_dono" value="{{ $proprietario->nome }}" readonly required>
                 </div>
                 <div class="form-group"> 
                     <label for="modelo">modelo:</label>
