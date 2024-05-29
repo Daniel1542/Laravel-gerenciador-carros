@@ -100,11 +100,11 @@ class ProprietarioController extends Controller
     {
         $request->validate([
             'nome' => 'string|max:40',
-            'cpf' => 'min:11|max:11|unique:proprietarios',
-            'idade' => 'int|max:3',
+            'cpf' => 'digits:11|unique:proprietarios',
+            'idade' => 'int|min:18|max:100',
             'telefone' => 'string|max:15',
             'sexo' => 'in:M,F',
-            'email' => 'max:30|email|nullable|unique:proprietarios',
+            'email' => 'max:40|email|nullable|unique:proprietarios,email',
         ]);
 
         Proprietario::create($request->all());
@@ -136,11 +136,11 @@ class ProprietarioController extends Controller
     {
         $request->validate([
             'nome' => 'string|max:40',
-            'cpf' => 'min:11|max:11',
+            'cpf' => 'required|digits:11|unique:proprietarios,cpf,' . $proprietario->id,
             'idade' => 'int|min:18|max:100',
             'telefone' => 'string|max:15',
             'sexo' => 'in:M,F',
-            'email' => 'max:30|email|nullable',
+            'email' => 'nullable|email|max:40|unique:proprietarios,email,' . $proprietario->id,
         ]);
 
         $proprietario->update($request->all());

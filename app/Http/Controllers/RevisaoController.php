@@ -154,7 +154,7 @@ class RevisaoController extends Controller
             'id_veiculo' => 'exists:veiculos,id',
             'placa' => 'string|max:14|exists:veiculos,placa',
             'data' => 'date',
-            'descricao' => 'string|max:50',
+            'descricao' => 'string|max:60',
         ]);
 
         $revisao->update($request->all());

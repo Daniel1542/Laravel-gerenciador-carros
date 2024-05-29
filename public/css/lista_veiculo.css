@@ -5,11 +5,11 @@
 
     .secao_veiculo #caixa{
         width: 100%;
-        background-color: rgb(196, 110, 104);
+        background-color: rgb(212, 148, 144);
         padding: 30px;
         margin-top: 180px;
-        border: 1px solid #d3a4a4;
-        border-radius: 5px;
+        border: 3px solid #d3a4a4;
+        border-radius: 3%;
     }
 
     .secao_veiculo .table-responsive {
@@ -37,9 +37,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid #d3a4a4;
-        border-radius: 2%;
-        background-color: rgb(196, 110, 104);
+        border: 3px solid #d3a4a4;
+        border-radius: 3%;
+        background-color: rgb(182, 176, 175);
     }
 
     .secao_veiculo_2 .container {

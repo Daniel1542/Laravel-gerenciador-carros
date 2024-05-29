@@ -4,7 +4,10 @@
 {{-- Seção para mostrar Veiculos --}}
 <section class="secao_veiculo">
     <div class="container" id="caixa">
-        <h1 class="text-center mb-4 mt-4">Veiculos</h1>
+        <div class="text-center">
+            <h1>Veiculos</h1>
+            <h2>Clique no proprietário para cadastrar uma revisão</h2>
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>

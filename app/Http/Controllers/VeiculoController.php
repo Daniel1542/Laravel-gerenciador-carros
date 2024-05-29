@@ -117,7 +117,7 @@ class VeiculoController extends Controller
             'id_proprietario' => 'exists:proprietarios,id',
             'modelo' => 'string|max:30',
             'marca' => 'string|max:30',
-            'placa' => 'string|max:14|unique:veiculos',
+            'placa' => 'string|max:14|unique:veiculos,placa' . $veiculo->id,
         ]);
 
         $veiculo->update($request->all());

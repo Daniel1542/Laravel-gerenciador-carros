@@ -4,13 +4,11 @@
 {{-- Seção para mostrar proprietarios --}}
 <section class="secao_proprietario">
     <div class="container" id="caixa">
-        <h1 class="text-center mb-4">Proprietários</h1>
-        <div class="buttons mt-4">  
-            <form action="{{ route('proprietario.create') }}" method="GET">
-              {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </form>
-        </div>    
+        <div class="text-center">
+            <h1>Proprietários</h1>
+            <h2>Clique no proprietário para cadastrar um veiculo</h2>
+            <h3><a class="cadastra_proprietario" href="{{ route('proprietario.create')}} ">Cadastrar proprietario</a></h3>
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>

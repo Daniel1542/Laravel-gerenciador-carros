@@ -9,16 +9,25 @@
   
     .secao_proprietario #caixa{
         width: 100%;
+        align-items: center;
         background-color: rgb(196, 110, 104);
         padding: 30px;
         margin-top: 180px;
         border: 1px solid #d3a4a4;
-        border-radius: 5px;
+        border-radius: 2%;
+    }
+
+    .secao_proprietario .cadastra_proprietario{
+        color: rgb(255, 249, 249);
+    }
+
+    .secao_proprietario .cadastra_proprietario:hover{
+        background-color: rgb(241, 205, 205);
     }
 
     .secao_proprietario .table-responsive {
         margin-top: 50px;
-        max-height: 800px;
+        max-height: 1000px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -30,8 +39,8 @@
     
     .secao_proprietario .table thead th,
     .secao_proprietario .table td {
-        background-color: #ffffff;
-        border: 1px solid #dee2e6;
+        background-color: rgb(230, 200, 200);
+        border: 2px solid #dee2e6;
         padding: 10px;
         text-align: center;
     }
@@ -42,7 +51,7 @@
         align-items: center;
         border: 1px solid #d3a4a4;
         border-radius: 2%;
-        background-color: rgb(196, 110, 104);
+        background-color: rgb(165, 165, 165);
     }
 
     .secao_proprietario_2 .container {
