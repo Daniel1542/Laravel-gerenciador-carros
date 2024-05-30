@@ -92,13 +92,12 @@
     @yield('content')
   </main>
   <footer>
-    <p>&copy; 2024 Daniel</p>
-    <nav>
+    <p class="copyright">&copy; 2024 Daniel</p>
+    <nav class="nav_footer">
       <a href="{{ route('principal.dashboard')}}">Página Inicial</a>
       <a href="#">Sobre Nós</a>
       <a href="#">Contato</a>
     </nav>
   </footer>
-
 </body>
 </html>

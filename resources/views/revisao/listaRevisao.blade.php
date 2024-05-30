@@ -8,9 +8,9 @@ use Carbon\Carbon;
 <section class="secao_revisao">
   <div class="container" id="caixa">
     <h1 class="text-center mb-4">revisões</h1>
-    <div class="container mt-4" id="container_formulario">
-      <form action="{{ route('revisao.revisoesPeriodo') }}" method="GET">
-        {{ csrf_field() }}
+    <form action="{{ route('revisao.revisoesPeriodo') }}" method="GET">
+      {{ csrf_field() }}
+      <div class="container" id="container_formulario">
         <div class="formulario">   
           <div class="form">
             <label for="data_inicio" class="form-label">Data Início:</label>
@@ -21,11 +21,11 @@ use Carbon\Carbon;
             <input type="date" class="form-control" id="data_fim" name="data_fim" required>
           </div>
         </div>
-        <div class="buttons mb-1 mt-4">
+        <div class="buttons mb-2 mt-4">
           <button type="submit" class="btn btn-primary">Buscar</button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
     <div class="table-responsive">
       <table class="table">
         <thead>

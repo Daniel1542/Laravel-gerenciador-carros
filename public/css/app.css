@@ -48,7 +48,7 @@
     background-color: rgb(219, 94, 22);
   }
   
-  header{
+  .corpo header{
     z-index: 100;
     display: flex;
     justify-content: center;
@@ -63,23 +63,23 @@
   
   /* Estilos para o menu suspenso */
   
-  header .dropdown {
+  .corpo header .dropdown {
     margin: 10px 0;
     display: inline-block;
   }
   
-  header .dropdown-menu {
+  .corpo header .dropdown-menu {
     display: none;
     position: absolute;
     box-shadow: 0px 0px 10px #000000;
     z-index: 1;
   }
   
-  header .dropdown:hover .dropdown-menu {
+  .corpo header .dropdown:hover .dropdown-menu {
     display: block;
   }
   
-  header .btn-secondary {
+  .corpo header .btn-secondary {
     background-color: rgb(219, 94, 22);
     border: none;
     padding: 10px;
@@ -87,13 +87,13 @@
     transition: background-color 0.3s ease;
   }
   
-  header .btn-secondary:hover {
+  .corpo header .btn-secondary:hover {
     background-color: rgb(4, 160, 43);
   }
   
   /*footer*/
   
-  footer{
+  .corpo footer{
     text-align: center;
     padding: 10px;
     margin-top: 100px;
@@ -101,24 +101,28 @@
     width: 100%;
     bottom: 0;
   }
+
+  .corpo footer .copyright {
+    color: rgb(255, 255, 255);
+  }
   
-  footer a {
-    color: #000000;
+  .corpo footer .nav_footer a {
+    color: rgb(255, 255, 255);
     text-decoration: none;
     margin: 0 5px;
   }
   
-  footer a:hover {
+  .corpo footer .nav_footer a:hover {
     text-decoration: underline;
   }
   
   @media screen and (max-width: 768px) {
   
-    header{
+    .corpo header{
       justify-content: space-around;
     }
   
-    footer{
+    .corpo footer{
       margin-top: 80px;
     }
   

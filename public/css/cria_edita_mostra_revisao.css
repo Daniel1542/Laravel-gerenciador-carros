@@ -13,7 +13,6 @@
     background-color: rgb(196, 110, 104);
     border: 1px solid #d3a4a4;
     border-radius: 5px;
-    min-width: 500px;
   }
   
   .secao_cria_edita_mostra_revisao .btn-custom {
@@ -38,13 +37,42 @@
     box-sizing: border-box;
   }
 
+  /*table*/
+
+  .secao_cria_edita_mostra_revisao .table-responsive {
+    margin-top: 50px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .secao_cria_edita_mostra_revisao .table{    
+    border-collapse: collapse;
+  }
+
+  .secao_cria_edita_mostra_revisao .table thead th,
+  .secao_cria_edita_mostra_revisao .table td {
+    background-color: rgb(221, 165, 165);
+    border: 2px solid #dee2e6;
+    padding: 10px;
+    text-align: center;
+  }
+
  
   @media screen and (max-width: 768px) {
   
     .secao_cria_edita_mostra_revisao #caixa{
-      padding: 20px;
+      padding: 10px;
       width: 98vw;
-      min-width: 300px;
+    }
+    .secao_cria_edita_mostra_revisao .table-responsive {
+      max-height: 700px;
+    }
+
+    .secao_cria_edita_mostra_revisao .table thead th,
+    .secao_cria_edita_mostra_revisao .table td {
+      padding: 2px;    
+      box-sizing: border-box;
     }
 
   }
