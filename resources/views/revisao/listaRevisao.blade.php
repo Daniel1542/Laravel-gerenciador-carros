@@ -82,13 +82,13 @@ use Carbon\Carbon;
           <h5 class="card-title">Média de Tempo Entre Revisões</h5>
           @if ($mediaTempo)
             <ul>
-              @foreach ($mediaTempo as $cpf => $media)
-                <li>Pessoa com CPF {{ $cpf }}: {{ round($media / 60, 2) }} minutos</li>
+              @foreach ($mediaTempo as $nome => $media)
+                <li> {{ $nome }}: {{ round($media, 2) }} dias</li>
               @endforeach
             </ul>
           @else
             <p>Nenhum dado disponível.</p>
-          @endif                                                        
+          @endif                                                 
         </div>
       </div>
     </div>

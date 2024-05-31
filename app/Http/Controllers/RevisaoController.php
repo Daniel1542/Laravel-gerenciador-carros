@@ -30,27 +30,37 @@ class RevisaoController extends Controller
         $resultados = DB::table('proprietarios')
             ->join('veiculos', 'proprietarios.id', '=', 'veiculos.id_proprietario')
             ->join('revisoes', 'veiculos.id', '=', 'revisoes.id_veiculo')
-            ->select('proprietarios.nome', 'proprietarios.cpf', 'revisoes.data')
-            ->orderBy('proprietarios.cpf')
+            ->select('proprietarios.nome', 'revisoes.data')
+            ->orderBy('proprietarios.nome')
             ->orderBy('revisoes.data')
             ->get();
-
-        $mediaTempo = [];
 
         $proprietarioAnterior = null;
         $dataRevisaoAnterior = null;
 
+        $mediaTempo = [];
+        $contadorRevisoes = [];
+
         foreach ($resultados as $resultado) {
-            if ($proprietarioAnterior !== $resultado->cpf) {
-                $proprietarioAnterior = $resultado->cpf;
+            if ($proprietarioAnterior !== $resultado->nome) {
+                $proprietarioAnterior = $resultado->nome;
                 $dataRevisaoAnterior = null;
             } else {
                 if ($dataRevisaoAnterior !== null) {
-                    $diferencaDias = strtotime($resultado->data) - strtotime($dataRevisaoAnterior);
-                    $mediaTempo[$resultado->cpf] = isset($mediaTempo[$resultado->cpf]) ? ($mediaTempo[$resultado->cpf] + $diferencaDias) / 2 : $diferencaDias;
+                    $diferencaDias = (strtotime($resultado->data) - strtotime($dataRevisaoAnterior)) / (60 * 60 * 24);
+                    if (isset($mediaTempo[$resultado->nome])) {
+                        $mediaTempo[$resultado->nome] += $diferencaDias;
+                        $contadorRevisoes[$resultado->nome] += 1;
+                    } else {
+                        $mediaTempo[$resultado->nome] = $diferencaDias;
+                        $contadorRevisoes[$resultado->nome] = 1;
+                    }
                 }
                 $dataRevisaoAnterior = $resultado->data;
             }
+        }
+        foreach ($mediaTempo as $nome => $totalDias) {
+            $mediaTempo[$nome] = $totalDias / $contadorRevisoes[$nome];
         }
 
         return $mediaTempo;
