@@ -19,7 +19,7 @@
         </div>
         <div class="form-group"> 
             <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" required>{{ old('descricao', $revisao->descricao) }}</textarea>
+            <textarea class="text-center" id="descricao" name="descricao" required>{{ old('descricao', $revisao->descricao) }}</textarea>
         </div>
         <div class="form-group mt-4">
             <button type="submit" class="btn btn-primary">Editar</button>

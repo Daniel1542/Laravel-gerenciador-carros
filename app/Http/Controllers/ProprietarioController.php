@@ -19,8 +19,8 @@ class ProprietarioController extends Controller
             $somaMulher = $proprietarios->where('sexo', 'F')->sum('idade');
             $somaHomem = $proprietarios->where('sexo', 'M')->sum('idade');
 
-            $idadeMediaMulher = $quantMulher > 0 ? $somaMulher / $quantMulher : 0;
-            $idadeMediaHomem = $quantHomem > 0 ? $somaHomem / $quantHomem : 0;
+            $idadeMediaMulher = $quantMulher > 0 ? round($somaMulher / $quantMulher) : 0;
+            $idadeMediaHomem = $quantHomem > 0 ? round($somaHomem / $quantHomem) : 0;
 
             if ($quantMulher > 0) {
                 $dados[] = [

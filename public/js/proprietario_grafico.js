@@ -22,7 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         },
                         labels: {
                             color: 'white' 
-                        }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    return `${value} anos`;
+                                }
+                            }
+                        }                       
                     }
                 }
             });

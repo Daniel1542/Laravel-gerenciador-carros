@@ -11,7 +11,7 @@
                 <input type="hidden" name="id_veiculo" value="{{ $veiculo->id }}">
                 <div class="form-group">
                     <label for="placa">placa:</label>
-                    <input type="text" id="placa" name="placa" value="{{ $veiculo->placa }}" required>
+                    <input type="text" id="placa" name="placa" value="{{ $veiculo->placa }}" readonly required>
                 </div>
                 <div class="form-group">
                     <label for="data">data:</label>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group"> 
                     <label for="descricao">Descrição:</label>
-                    <textarea id="descricao" name="descricao" required></textarea>
+                    <textarea class="text-center" id="descricao" name="descricao" required></textarea>
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-custom">Cadastrar</button>
